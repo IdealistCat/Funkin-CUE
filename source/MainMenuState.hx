@@ -109,13 +109,13 @@ class MainMenuState extends MusicBeatState
 		{
 			if (controls.UP_P)
 			{
-				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
+				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt);
 				changeItem(-1);
 			}
 
 			if (controls.DOWN_P)
 			{
-				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
+				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt);
 				changeItem(1);
 			}
 
@@ -137,7 +137,7 @@ class MainMenuState extends MusicBeatState
 				else
 				{
 					selectedSomethin = true;
-					FlxG.sound.play('assets/sounds/confirmMenu' + TitleState.soundExt);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + TitleState.soundExt);
 
 					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 

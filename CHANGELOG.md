@@ -9,3 +9,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Folders to code, current folders are `gameplay` and `utilities`
 - `AssetPaths.hx` file that help with the file location stuff
 - Folders to asset files
+- Coma-seperated Score
+- Miss Counter

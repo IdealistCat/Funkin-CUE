@@ -14,7 +14,7 @@ class LatencyState extends FlxState
 
 	override function create()
 	{
-		FlxG.sound.playMusic('assets/sounds/soundTest' + TitleState.soundExt);
+		FlxG.sound.playMusic('${AssetPaths.SOUND_FOLDER}/soundTest' + TitleState.soundExt);
 
 		noteGrp = new FlxTypedGroup<Note>();
 		add(noteGrp);

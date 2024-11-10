@@ -230,7 +230,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt, 0.4);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt, 0.4);
 
 		curSelected += change;
 

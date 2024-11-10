@@ -113,6 +113,7 @@ class PlayState extends MusicBeatState
 
 	var talking:Bool = true;
 	var songScore:Int = 0;
+	var songMisses:Int = 0;
 	var scoreTxt:FlxText;
 
 	public static var campaignScore:Int = 0;
@@ -223,7 +224,7 @@ class PlayState extends MusicBeatState
 			phillyTrain = new FlxSprite(2000, 360).loadGraphic('${AssetPaths.IMAGE_FOLDER}/philly/train.png');
 			add(phillyTrain);
 
-			trainSound = new FlxSound().loadEmbedded('assets/sounds/train_passes' + TitleState.soundExt);
+			trainSound = new FlxSound().loadEmbedded('${AssetPaths.SOUND_FOLDER}/train_passes' + TitleState.soundExt);
 			FlxG.sound.list.add(trainSound);
 
 			// var cityLights:FlxSprite = new FlxSprite().loadGraphic(AssetPaths.win0.png);
@@ -721,7 +722,7 @@ class PlayState extends MusicBeatState
 					new FlxTimer().start(0.1, function(tmr:FlxTimer)
 					{
 						remove(blackScreen);
-						FlxG.sound.play('assets/sounds/Lights_Turn_On' + TitleState.soundExt);
+						FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Lights_Turn_On' + TitleState.soundExt);
 						camFollow.y = -2050;
 						camFollow.x += 200;
 						FlxG.camera.focusOn(camFollow.getPosition());
@@ -743,7 +744,7 @@ class PlayState extends MusicBeatState
 				case 'senpai':
 					schoolIntro(doof);
 				case 'roses':
-					FlxG.sound.play('assets/sounds/ANGRY' + TitleState.soundExt);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/ANGRY' + TitleState.soundExt);
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
@@ -818,7 +819,7 @@ class PlayState extends MusicBeatState
 							else
 							{
 								senpaiEvil.animation.play('idle');
-								FlxG.sound.play('assets/sounds/Senpai_Dies' + TitleState.soundExt, 1, false, null, true, function()
+								FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Senpai_Dies' + TitleState.soundExt, 1, false, null, true, function()
 								{
 									remove(senpaiEvil);
 									remove(red);
@@ -892,7 +893,7 @@ class PlayState extends MusicBeatState
 
 			{
 				case 0:
-					FlxG.sound.play('assets/sounds/intro3' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro3' + altSuffix + TitleState.soundExt, 0.6);
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic('${uiPath}${introAlts[0]}');
 					ready.scrollFactor.set();
@@ -910,7 +911,7 @@ class PlayState extends MusicBeatState
 							ready.destroy();
 						}
 					});
-					FlxG.sound.play('assets/sounds/intro2' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro2' + altSuffix + TitleState.soundExt, 0.6);
 				case 2:
 					var set:FlxSprite = new FlxSprite().loadGraphic(uiPath + introAlts[1]);
 					set.scrollFactor.set();
@@ -927,7 +928,7 @@ class PlayState extends MusicBeatState
 							set.destroy();
 						}
 					});
-					FlxG.sound.play('assets/sounds/intro1' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro1' + altSuffix + TitleState.soundExt, 0.6);
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(uiPath + introAlts[2]);
 					go.scrollFactor.set();
@@ -946,7 +947,7 @@ class PlayState extends MusicBeatState
 							go.destroy();
 						}
 					});
-					FlxG.sound.play('assets/sounds/introGo' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/introGo' + altSuffix + TitleState.soundExt, 0.6);
 				case 4:
 			}
 
@@ -1265,7 +1266,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		var commaSeparated:Bool = true;
-		scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}';
+		scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} || Misses: ${songMisses}';
 
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
@@ -1657,7 +1658,7 @@ class PlayState extends MusicBeatState
 					add(blackShit);
 					camHUD.visible = false;
 
-					FlxG.sound.play('assets/sounds/Lights_Shut_off' + TitleState.soundExt);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Lights_Shut_off' + TitleState.soundExt);
 				}
 
 				FlxTransitionableState.skipNextTransIn = true;
@@ -2048,9 +2049,10 @@ class PlayState extends MusicBeatState
 			combo = 0;
 
 			songScore -= 10;
+			songMisses++;
 
-			FlxG.sound.play('assets/sounds/missnote' + FlxG.random.int(1, 3) + TitleState.soundExt, FlxG.random.float(0.1, 0.2));
-			// FlxG.sound.play('assets/sounds/missnote1' + TitleState.soundExt, 1, false);
+			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/missnote' + FlxG.random.int(1, 3) + TitleState.soundExt, FlxG.random.float(0.1, 0.2));
+			// FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/missnote1' + TitleState.soundExt, 1, false);
 			// FlxG.log.add('played imss note');
 
 			boyfriend.stunned = true;
@@ -2163,7 +2165,7 @@ class PlayState extends MusicBeatState
 
 	function fastCarDrive()
 	{
-		FlxG.sound.play('assets/sounds/carPass' + FlxG.random.int(0, 1) + TitleState.soundExt, 0.7);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/carPass' + FlxG.random.int(0, 1) + TitleState.soundExt, 0.7);
 
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
@@ -2229,7 +2231,7 @@ class PlayState extends MusicBeatState
 
 	function lightningStrikeShit():Void
 	{
-		FlxG.sound.play('assets/sounds/thunder_' + FlxG.random.int(1, 2) + TitleState.soundExt);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/thunder_' + FlxG.random.int(1, 2) + TitleState.soundExt);
 		halloweenBG.animation.play('lightning');
 
 		lightningStrikeBeat = curBeat;
