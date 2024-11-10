@@ -9,6 +9,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.sound.FlxSound;
 import flixel.util.FlxColor;
+import utilities.AssetPaths;
 
 class PauseSubState extends MusicBeatSubstate
 {
