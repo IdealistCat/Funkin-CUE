@@ -77,3 +77,12 @@ As for Mac, 'lime test mac -debug' should work, if not the internet surely has a
 
 PLEASE REPORT ANY BUGS
 PLEASE
+
+## Known Bugs
+
+### Bug #1 - Missing Mod Stuff
+```
+source/engine/Version.hx:3: characters 8-30 : Type not found : engine.modding.ModInit
+source/engine/Version.hx:11: characters 21-38 : Type not found : ModInit
+```
+just remove any and all instances of ModInit
