@@ -2,6 +2,7 @@ package gameplay;
 
 import gameplay.Section.SwagSection;
 import gameplay.Song.SwagSong;
+import gameplay.*;
 import WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
@@ -2013,15 +2014,14 @@ class PlayState extends MusicBeatState
 					if (rightR)
 						spr.animation.play('static');
 			}
+			
+			spr.centerOffsets();
 
-			if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+			try { if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
 			{
-				spr.centerOffsets();
 				spr.offset.x -= 13;
 				spr.offset.y -= 13;
-			}
-			else
-				spr.centerOffsets();
+			} } catch(e) {#if debug trace(e); #end}
 		});
 	}
 
