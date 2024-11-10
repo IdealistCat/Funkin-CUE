@@ -1,3 +1,7 @@
 TODO
-- Add Mod support
-- Make Weeks 2 -7 + weekend1 a mod
+- Add Full Mod support
+- Add Week 7
+- Add Weekend 1
+- Add Pico Mixes
+- Added Character Select
+- Make Base game weeks a mod
