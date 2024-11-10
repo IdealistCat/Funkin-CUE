@@ -54,8 +54,13 @@ class MainMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = bg;
-		magenta.loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuDesat.png');
+		magenta = new FlxSprite(bg.x, bg.y).loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuDesat.png');
+		magenta.scrollFactor.x = bg.scrollFactor.x;
+		magenta.scrollFactor.y = bg.scrollFactor.y;
+		magenta.scale.x = bg.scale.x;
+		magenta.scale.y = bg.scale.y;
+		magenta.updateHitbox();
+		magenta.antialiasing = bg.antialiasing;
 		magenta.visible = false;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
@@ -63,9 +68,6 @@ class MainMenuState extends MusicBeatState
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
-		
-		bg.visible = true;
-		bg.color = 0xffffff;
 
 		var tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/FNF_main_menu_assets.png', '${AssetPaths.IMAGE_FOLDER}/FNF_main_menu_assets.xml');
 
