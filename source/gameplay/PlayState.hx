@@ -3,7 +3,8 @@ package gameplay;
 import gameplay.Section.SwagSection;
 import gameplay.Song.SwagSong;
 import gameplay.*;
-import WiggleEffect.WiggleEffectType;
+import shaders.WiggleEffect;
+import shaders.WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -127,6 +128,8 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		Conductor.safeZoneOffset = (10 / 60) * 1000 * 1;
+
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
