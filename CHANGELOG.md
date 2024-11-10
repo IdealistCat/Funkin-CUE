@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Coma-seperated Score
 - Miss Counter
 - Ghost tapping (untogglable because you would keep missing a note right as you do hit a note)
-- Crashdumper by larsiusprime (crash handler)
+- VSlice Crashdumper (first commit of it)
 - Scoretxt Outline
 - BF Fakeout Death
 - Prototype Text
