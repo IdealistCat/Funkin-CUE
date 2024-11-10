@@ -32,7 +32,7 @@ class Note extends FlxSprite
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
 
-	public var assetPath:String = '${AssetPaths.IMAGE_FOLDER}/ui';
+	public var assetPath:String = '${AssetPaths.UI_FOLDER}';
 
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false)
 	{

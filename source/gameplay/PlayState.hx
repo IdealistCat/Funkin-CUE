@@ -888,7 +888,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-			var uiPath:String = '${AssetPaths.IMAGE_FOLDER}/ui/';
+			var uiPath:String = '${AssetPaths.UI_FOLDER}/';
 			switch (swagCounter)
 
 			{
@@ -1085,7 +1085,7 @@ class PlayState extends MusicBeatState
 			switch (curStage)
 			{
 				case 'school' | 'schoolEvil':
-					babyArrow.loadGraphic('${AssetPaths.IMAGE_FOLDER}/ui/pixelUI/arrows-pixels.png', true, 17, 17);
+					babyArrow.loadGraphic('${AssetPaths.UI_FOLDER}/pixelUI/arrows-pixels.png', true, 17, 17);
 					babyArrow.animation.add('green', [6]);
 					babyArrow.animation.add('red', [7]);
 					babyArrow.animation.add('blue', [5]);
@@ -1120,8 +1120,8 @@ class PlayState extends MusicBeatState
 					}
 
 				default:
-					babyArrow.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/ui/NOTE_assets.png',
-						'${AssetPaths.IMAGE_FOLDER}/ui/NOTE_assets.xml');
+					babyArrow.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.UI_FOLDER}/NOTE_assets.png',
+						'${AssetPaths.UI_FOLDER}/NOTE_assets.xml');
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
