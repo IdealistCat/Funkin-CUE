@@ -690,12 +690,19 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
 
-		var versionShit:FlxText = new FlxText(0, 0, 0, "Funkin C.U.E. "+'v${Application.current.meta.get('version')}'+#if debug GitStuff.developmentString() #else '' #end, 12);
+		var versionShit:FlxText = new FlxText(0, 0, 0, 
+			"Funkin C.U.E. "
+			+'v${Application.current.meta.get('version')}'
+			+#if debug GitStuff.developmentString(
+			{
+				uncommitChanges: false
+			}
+		) #else '' #end, 12);
 		versionShit.scrollFactor.set();
 		versionShit.x = 8;
 		versionShit.y = FlxG.height - versionShit.height - 4;
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionShit.cameras = [camHUD];
+		// versionShit.cameras = [camHUD];
 		#if debug add(versionShit); #end
 
 		iconP1 = new HealthIcon(SONG.player1, true);
