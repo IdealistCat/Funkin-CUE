@@ -199,7 +199,7 @@ class TitleState extends MusicBeatState
 	function getIntroTextShit():Array<Array<String>>
 	{
 		var path:String = '${AssetPaths.DATA_FOLDER}/introText.txt';
-		var fullText:String = try { PolymodAssets.getText(path); } catch(e) { Assets.getText(path); }
+		var fullText:String = Assets.getText(path);
 
 		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];
