@@ -113,7 +113,7 @@ class DialogueBox extends FlxSpriteGroup
 		box.updateHitbox();
 		add(box);
 
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic('${AssetPaths.IMAGE_FOLDER}/weeb/pixelUI/hand_textbox.png');
+		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic('${AssetPaths.UI_FOLDER}/pixelUI/hand_textbox.png');
 		add(handSelect);
 
 		box.screenCenter(X);
