@@ -22,22 +22,35 @@ class GitStuff
 	public static var warningSymbol:String = "/!\\";
 
     public static function developmentString(?params:DevString)
-    {
+	{
+
+		params ??= defaultDevString();
+
+		params.prototype ??= true;
+		params.uncommitChanges ??= true;
+
         #if debug
-        return  '( ${params.prototype ? 'PROTOTYPE | ' : '' }${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES && params.uncommitChanges ? ' [$warningSymbol UNCOMMIT CHANGES $warningSymbol] ' : ' '})';
+        return  ' ( ${!params.prototype ? '' : 'PROTOTYPE | ' }${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES && params.uncommitChanges ? ' [$warningSymbol UNCOMMIT CHANGES $warningSymbol] ' : ' '})';
         #else
         return '';
         #end
     }
+
+	public static function defaultDevString():DevString {
+		return {
+			prototype: true,
+			uncommitChanges:true
+		}
+	}
 }
 
-typedef DevString = {
+typedef DevString =
+{
 
-	@default(true)
 	@:optional
-	var prototype:Bool;
+	public var prototype:Bool;
 
-	@default(true)
 	@:optional
-	var uncommitChanges:Bool;
+	public var uncommitChanges:Bool;
+
 }
