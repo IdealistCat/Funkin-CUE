@@ -84,7 +84,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
-		var versionShit:FlxText = new FlxText(0, 0, 0, "Mod Base: Funkin v0.2.7.1 ( 50fccde | master | modified )\nFunkin CUE v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(0, 0, 0, "Funkin v0.2.7.1 ( commit 50fccde )\nFunkin CUE v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.x = 8;
 		versionShit.y = FlxG.height - versionShit.height - 4;
