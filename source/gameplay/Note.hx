@@ -30,6 +30,8 @@ class Note extends FlxSprite
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
 
+	public var assetPath:String = "assets/images/ui";
+
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false)
 	{
 		super();
@@ -52,7 +54,7 @@ class Note extends FlxSprite
 		switch (daStage)
 		{
 			case 'school' | 'schoolEvil':
-				loadGraphic('assets/images/weeb/pixelUI/arrows-pixels.png', true, 17, 17);
+				loadGraphic('$assetPath/pixelUI/arrows-pixels.png', true, 17, 17);
 
 				animation.add('greenScroll', [6]);
 				animation.add('redScroll', [7]);
@@ -61,7 +63,7 @@ class Note extends FlxSprite
 
 				if (isSustainNote)
 				{
-					loadGraphic('assets/images/weeb/pixelUI/arrowEnds.png', true, 7, 6);
+					loadGraphic('$assetPath/pixelUI/arrowEnds.png', true, 7, 6);
 
 					animation.add('purpleholdend', [4]);
 					animation.add('greenholdend', [6]);
@@ -78,7 +80,7 @@ class Note extends FlxSprite
 				updateHitbox();
 
 			default:
-				frames = FlxAtlasFrames.fromSparrow('assets/images/NOTE_assets.png', 'assets/images/NOTE_assets.xml');
+				frames = FlxAtlasFrames.fromSparrow('$assetPath/NOTE_assets.png', '$assetPath/NOTE_assets.xml');
 
 				animation.addByPrefix('greenScroll', 'green0');
 				animation.addByPrefix('redScroll', 'red0');
