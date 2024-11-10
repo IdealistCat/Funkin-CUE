@@ -293,7 +293,8 @@ class PlayState extends MusicBeatState
 			add(bg);
 
 			upperBoppers = new FlxSprite(-240, -90);
-			upperBoppers.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/christmas/upperBop.png', '${AssetPaths.IMAGE_FOLDER}/christmas/upperBop.xml');
+			upperBoppers.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/christmas/upperBop.png',
+				'${AssetPaths.IMAGE_FOLDER}/christmas/upperBop.xml');
 			upperBoppers.animation.addByPrefix('bop', "Upper Crowd Bob", 24, false);
 			upperBoppers.antialiasing = true;
 			upperBoppers.scrollFactor.set(0.33, 0.33);
@@ -315,7 +316,8 @@ class PlayState extends MusicBeatState
 			add(tree);
 
 			bottomBoppers = new FlxSprite(-300, 140);
-			bottomBoppers.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/christmas/bottomBop.png', '${AssetPaths.IMAGE_FOLDER}/christmas/bottomBop.xml');
+			bottomBoppers.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/christmas/bottomBop.png',
+				'${AssetPaths.IMAGE_FOLDER}/christmas/bottomBop.xml');
 			bottomBoppers.animation.addByPrefix('bop', 'Bottom Level Boppers', 24, false);
 			bottomBoppers.antialiasing = true;
 			bottomBoppers.scrollFactor.set(0.9, 0.9);
@@ -379,7 +381,8 @@ class PlayState extends MusicBeatState
 			add(fgTrees);
 
 			var bgTrees:FlxSprite = new FlxSprite(repositionShit - 380, -800);
-			var treetex = FlxAtlasFrames.fromSpriteSheetPacker('${AssetPaths.IMAGE_FOLDER}/weeb/weebTrees.png', '${AssetPaths.IMAGE_FOLDER}/weeb/weebTrees.txt');
+			var treetex = FlxAtlasFrames.fromSpriteSheetPacker('${AssetPaths.IMAGE_FOLDER}/weeb/weebTrees.png',
+				'${AssetPaths.IMAGE_FOLDER}/weeb/weebTrees.txt');
 			bgTrees.frames = treetex;
 			bgTrees.animation.add('treeLoop', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 12);
 			bgTrees.animation.play('treeLoop');
@@ -432,7 +435,8 @@ class PlayState extends MusicBeatState
 			var posY = 200;
 
 			var bg:FlxSprite = new FlxSprite(posX, posY);
-			bg.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/weeb/animatedEvilSchool.png', '${AssetPaths.IMAGE_FOLDER}/weeb/animatedEvilSchool.xml');
+			bg.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/weeb/animatedEvilSchool.png',
+				'${AssetPaths.IMAGE_FOLDER}/weeb/animatedEvilSchool.xml');
 			bg.animation.addByPrefix('idle', 'background 2', 24);
 			bg.animation.play('idle');
 			bg.scrollFactor.set(0.8, 0.9);
@@ -868,16 +872,8 @@ class PlayState extends MusicBeatState
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', ['ready.png', "set.png", "go.png"]);
-			introAssets.set('school', [
-				'weeb/pixelUI/ready-pixel.png',
-				'weeb/pixelUI/set-pixel.png',
-				'weeb/pixelUI/date-pixel.png'
-			]);
-			introAssets.set('schoolEvil', [
-				'weeb/pixelUI/ready-pixel.png',
-				'weeb/pixelUI/set-pixel.png',
-				'weeb/pixelUI/date-pixel.png'
-			]);
+			introAssets.set('school', ['pixelUI/ready-pixel.png', 'pixelUI/set-pixel.png', 'pixelUI/date-pixel.png']);
+			introAssets.set('schoolEvil', ['pixelUI/ready-pixel.png', 'pixelUI/set-pixel.png', 'pixelUI/date-pixel.png']);
 
 			var introAlts:Array<String> = introAssets.get('default');
 			var altSuffix:String = "";
@@ -891,13 +887,14 @@ class PlayState extends MusicBeatState
 				}
 			}
 
+			var uiPath:String = '${AssetPaths.IMAGE_FOLDER}/ui/';
 			switch (swagCounter)
 
 			{
 				case 0:
 					FlxG.sound.play('assets/sounds/intro3' + altSuffix + TitleState.soundExt, 0.6);
 				case 1:
-					var ready:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/' + introAlts[0]);
+					var ready:FlxSprite = new FlxSprite().loadGraphic('${uiPath}${introAlts[0]}');
 					ready.scrollFactor.set();
 					ready.updateHitbox();
 
@@ -915,7 +912,7 @@ class PlayState extends MusicBeatState
 					});
 					FlxG.sound.play('assets/sounds/intro2' + altSuffix + TitleState.soundExt, 0.6);
 				case 2:
-					var set:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/' + introAlts[1]);
+					var set:FlxSprite = new FlxSprite().loadGraphic(uiPath + introAlts[1]);
 					set.scrollFactor.set();
 
 					if (curStage.startsWith('school'))
@@ -932,7 +929,7 @@ class PlayState extends MusicBeatState
 					});
 					FlxG.sound.play('assets/sounds/intro1' + altSuffix + TitleState.soundExt, 0.6);
 				case 3:
-					var go:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/' + introAlts[2]);
+					var go:FlxSprite = new FlxSprite().loadGraphic(uiPath + introAlts[2]);
 					go.scrollFactor.set();
 
 					if (curStage.startsWith('school'))
@@ -1087,7 +1084,7 @@ class PlayState extends MusicBeatState
 			switch (curStage)
 			{
 				case 'school' | 'schoolEvil':
-					babyArrow.loadGraphic('${AssetPaths.IMAGE_FOLDER}/weeb/pixelUI/arrows-pixels.png', true, 17, 17);
+					babyArrow.loadGraphic('${AssetPaths.IMAGE_FOLDER}/ui/pixelUI/arrows-pixels.png', true, 17, 17);
 					babyArrow.animation.add('green', [6]);
 					babyArrow.animation.add('red', [7]);
 					babyArrow.animation.add('blue', [5]);
@@ -1122,7 +1119,8 @@ class PlayState extends MusicBeatState
 					}
 
 				default:
-					babyArrow.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/NOTE_assets.png', '${AssetPaths.IMAGE_FOLDER}/NOTE_assets.xml');
+					babyArrow.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/ui/NOTE_assets.png',
+						'${AssetPaths.IMAGE_FOLDER}/ui/NOTE_assets.xml');
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
@@ -1991,37 +1989,49 @@ class PlayState extends MusicBeatState
 
 		playerStrums.forEach(function(spr:FlxSprite)
 		{
-			switch (spr.ID)
+			try
 			{
-				case 0:
-					if (leftP && spr.animation.curAnim.name != 'confirm')
-						spr.animation.play('pressed');
-					if (leftR)
-						spr.animation.play('static');
-				case 1:
-					if (downP && spr.animation.curAnim.name != 'confirm')
-						spr.animation.play('pressed');
-					if (downR)
-						spr.animation.play('static');
-				case 2:
-					if (upP && spr.animation.curAnim.name != 'confirm')
-						spr.animation.play('pressed');
-					if (upR)
-						spr.animation.play('static');
-				case 3:
-					if (rightP && spr.animation.curAnim.name != 'confirm')
-						spr.animation.play('pressed');
-					if (rightR)
-						spr.animation.play('static');
-			}
-			
-			spr.centerOffsets();
+				switch (spr.ID)
+				{
+					case 0:
+						if (leftP && spr.animation.curAnim.name != 'confirm')
+							spr.animation.play('pressed');
+						if (leftR)
+							spr.animation.play('static');
+					case 1:
+						if (downP && spr.animation.curAnim.name != 'confirm')
+							spr.animation.play('pressed');
+						if (downR)
+							spr.animation.play('static');
+					case 2:
+						if (upP && spr.animation.curAnim.name != 'confirm')
+							spr.animation.play('pressed');
+						if (upR)
+							spr.animation.play('static');
+					case 3:
+						if (rightP && spr.animation.curAnim.name != 'confirm')
+							spr.animation.play('pressed');
+						if (rightR)
+							spr.animation.play('static');
+				}
 
-			try { if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+				spr.centerOffsets();
+
+				try
+				{
+					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+					{
+						spr.offset.x -= 13;
+						spr.offset.y -= 13;
+					}
+				}
+				catch (e)
+				{
+				}
+			}
+			catch (e)
 			{
-				spr.offset.x -= 13;
-				spr.offset.y -= 13;
-			} } catch(e) {#if debug trace(e); #end}
+			}
 		});
 	}
 
