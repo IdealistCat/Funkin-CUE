@@ -1,4 +1,4 @@
-package;
+package gameplay;
 
 import Controls.Control;
 import flixel.FlxG;
