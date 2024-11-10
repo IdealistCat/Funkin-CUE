@@ -1,5 +1,7 @@
 package gameplay;
 
+import engine.GitStuff;
+import lime.app.Application;
 import gameplay.Section.SwagSection;
 import gameplay.Song.SwagSong;
 import gameplay.*;
@@ -687,6 +689,14 @@ class PlayState extends MusicBeatState
 		scoreTxt.setFormat("assets/fonts/vcr.ttf", 16, FlxColor.WHITE, CENTER, OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
+
+		var versionShit:FlxText = new FlxText(0, 0, 0, "Funkin C.U.E. "+'v${Application.current.meta.get('version')}'+#if debug GitStuff.developmentString() #else '' #end, 12);
+		versionShit.scrollFactor.set();
+		versionShit.x = 8;
+		versionShit.y = FlxG.height - versionShit.height - 4;
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.cameras = [camHUD];
+		#if debug add(versionShit); #end
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);

@@ -24,7 +24,7 @@ class GitStuff
     public static function developmentString()
     {
         #if debug
-        return  '( ${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES ? ' [$warningSymbol UNCOMMIT CHANGES $warningSymbol] ' : ' '})';
+        return  '( PROTOTYPE | ${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES ? ' [$warningSymbol UNCOMMIT CHANGES $warningSymbol] ' : ' '})';
         #else
         return '';
         #end
