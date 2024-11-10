@@ -47,7 +47,7 @@ class MainMenuState extends MusicBeatState
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.2));
 		bg.updateHitbox();
-		bg.screenCenter();
+		bg.screenCenter(XY);
 		bg.antialiasing = true;
 		add(bg);
 
@@ -63,6 +63,9 @@ class MainMenuState extends MusicBeatState
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
+		
+		bg.visible = true;
+		bg.color = 0xffffff;
 
 		var tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/FNF_main_menu_assets.png', '${AssetPaths.IMAGE_FOLDER}/FNF_main_menu_assets.xml');
 
