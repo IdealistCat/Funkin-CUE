@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import utilities.AssetPaths;
+import menus.*;
 
 class GitarooPause extends MusicBeatState
 {

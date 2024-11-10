@@ -7,6 +7,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import utilities.AssetPaths;
+import menus.*;
 
 class GameOverSubstate extends MusicBeatSubstate
 {

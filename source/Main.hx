@@ -1,5 +1,6 @@
 package;
 
+import menus.TitleState;
 import openfl.Assets;
 import crashdumper.SessionData;
 import crashdumper.CrashDumper;
