@@ -1,7 +1,11 @@
 package;
 
-import Section.SwagSection;
-import Song.SwagSong;
+import gameplay.Song;
+import gameplay.PlayState;
+import gameplay.Section.SwagSection;
+import gameplay.Song.SwagSong;
+import gameplay.Note;
+import gameplay.HealthIcon;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -19,7 +23,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;

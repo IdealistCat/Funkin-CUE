@@ -1,5 +1,6 @@
 package;
 
+import gameplay.PlayState;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.text.FlxTypeText;

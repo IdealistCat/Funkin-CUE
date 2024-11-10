@@ -1,6 +1,6 @@
 package gameplay;
 
-import Section.SwagSection;
+import gameplay.Section.SwagSection;
 import haxe.Json;
 import haxe.format.JsonParser;
 import lime.utils.Assets;
