@@ -18,4 +18,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Storymode pico Offsets
 ### Changed
 - scoreTxt position
-- SafeInput frames from 10 to 24
+- SafeInput frames from 10 to 60
