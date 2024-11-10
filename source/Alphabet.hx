@@ -251,10 +251,10 @@ class AlphaCharacter extends FlxSprite
     frames = tex;
   }
 
-  public function createBold(letter:String)
+  public function createBold(boldletter:String)
   {
-    animation.addByPrefix(letter, letter.toUpperCase() + " bold", 24);
-    animation.play(letter);
+    animation.addByPrefix(boldletter, boldletter.toUpperCase() + " bold", 24);
+    animation.play(boldletter);
     updateHitbox();
   }
 
@@ -274,33 +274,31 @@ class AlphaCharacter extends FlxSprite
     y += row * 60;
   }
 
-  public function createNumber(letter:String):Void
+  public function createNumber(num:String):Void
   {
-    animation.addByPrefix(letter, letter, 24);
-    animation.play(letter);
+    animation.addByPrefix(num, num, 24);
+    animation.play(num);
 
     updateHitbox();
   }
 
-  public function createSymbol(letter:String)
+  public function createSymbol(symbol:String)
   {
-    switch (letter)
+    switch (symbol)
     {
       case '.':
-        animation.addByPrefix(letter, 'period', 24);
-        animation.play(letter);
+        animation.addByPrefix(symbol, 'period', 24);
         y += 50;
       case "'":
-        animation.addByPrefix(letter, 'apostraphie', 24);
-        animation.play(letter);
+        animation.addByPrefix(symbol, 'apostraphie', 24);
         y -= 0;
       case "?":
-        animation.addByPrefix(letter, 'question mark', 24);
-        animation.play(letter);
+        animation.addByPrefix(symbol, 'question mark', 24);
       case "!":
-        animation.addByPrefix(letter, 'exclamation point', 24);
-        animation.play(letter);
+        animation.addByPrefix(symbol, 'exclamation point', 24);
     }
+	
+	animation.play(symbol);
 
     updateHitbox();
   }
