@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.1] - 11/??/2024
 ### Changed
 - Window Title (just a bit)
+### Fixed
+- Type not Found: ModInit compiling error
 
 ## [0.1.0] - 11/10/2024
 ### Added
