@@ -8,21 +8,17 @@ Support the project on the itch.io page: https://ninja-muffin24.itch.io/funkin
 
 ## Credits / shoutouts
 
-- [ninjamuffin99 (me!)](https://twitter.com/ninja_muffin99) - Programmer
-- [PhantomArcade3K](https://twitter.com/phantomarcade3k) and [Evilsk8r](https://twitter.com/evilsk8r) - Art
-- [Kawaisprite](https://twitter.com/kawaisprite) - Musician
+- [sinco (me!)](https://www.youtube.com/@idealistcat) - Programmer
 
 This game was made with love to Newgrounds and it's community. Extra love to Tom Fulp.
 
 ## Build instructions
 
-THESE INSTRUCTIONS ARE FOR COMPILING THE GAME'S SOURCE CODE!!!
-
-IF YOU WANT TO JUST DOWNLOAD AND INSTALL AND PLAY THE GAME NORMALLY, GO TO ITCH.IO TO DOWNLOAD THE GAME FOR PC, MAC, AND LINUX!!
-
-https://ninja-muffin24.itch.io/friday-night-funkin
+THESE INSTRUCTIONS ARE FOR COMPILING THE SOURCE CODE!!!
 
 IF YOU WANT TO COMPILE THE GAME YOURSELF, CONTINUE READING!!!
+
+OTHERWISE GO TO THE DAMN GAMEBANANA
 
 ### Installing shit
 
@@ -39,10 +35,11 @@ newgrounds
 
 So for each of those type `haxelib install [library]` so shit like `haxelib install newgrounds`
 
-You'll also need to install polymod. Do this with 
+You'll also need to install some other stuff, copy these into your terminal
 
 ```
 haxelib git polymod https://github.com/larsiusprime/polymod.git
+haxelib git crashdumper http://github.com/larsiusprime/crashdumper
 ```
 
 and you should be good to go there.

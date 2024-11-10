@@ -1727,7 +1727,7 @@ class PlayState extends MusicBeatState
 
 		if (curStage.startsWith('school'))
 		{
-			pixelShitPart1 = 'weeb/pixelUI/';
+			pixelShitPart1 = 'ui/pixelUI/';
 			pixelShitPart2 = '-pixel';
 		}
 
