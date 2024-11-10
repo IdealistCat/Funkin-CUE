@@ -830,7 +830,7 @@ class PlayState extends MusicBeatState
 								});
 								new FlxTimer().start(3.2, function(deadTime:FlxTimer)
 								{
-									FlxG.camera.fade(FlxColor.WHITE, 1.6, false);
+									FlxG.camera.fade(FlxColor.WHITE, 1.6, false, function() {});
 								});
 							}
 						});
@@ -844,6 +844,8 @@ class PlayState extends MusicBeatState
 					startCountdown();
 
 				remove(black);
+				FlxG.camera.color = FlxColor.TRANSPARENT;
+				FlxG.camera.bgColor = FlxColor.TRANSPARENT;
 			}
 		});
 	}
