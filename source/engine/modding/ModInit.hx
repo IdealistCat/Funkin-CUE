@@ -36,6 +36,7 @@ class ModInit
 		#if polymod
         trace('Funkin C.U.E.Modding API v$MOD_API');
 
+		try{
 		Polymod.init({
 			modRoot: 'mods/',
 			framework: OPENFL,
@@ -67,6 +68,10 @@ class ModInit
 		{
 			trace('#$index - ${mod.title}');
 			index++;
+		}}
+		catch(e)
+		{
+			trace(e);
 		}
 
 		#end
