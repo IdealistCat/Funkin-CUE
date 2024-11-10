@@ -1,7 +1,5 @@
 package gameplay;
 
-import polymod.backends.PolymodAssets;
-import utilities.AssetPaths;
 import gameplay.Section.SwagSection;
 import haxe.Json;
 import haxe.format.JsonParser;
@@ -42,7 +40,7 @@ class Song
 
 	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
 	{
-		var rawJson = try {PolymodAssets.getText('${AssetPaths.DATA_FOLDER}' + folder.toLowerCase() + '/' + jsonInput.toLowerCase() + '.json').trim();} catch(e) {Assets.getText('${AssetPaths.DATA_FOLDER}' + folder.toLowerCase() + '/' + jsonInput.toLowerCase() + '.json').trim();}
+		var rawJson = Assets.getText('assets/data/' + folder.toLowerCase() + '/' + jsonInput.toLowerCase() + '.json').trim();
 
 		while (!rawJson.endsWith("}"))
 		{

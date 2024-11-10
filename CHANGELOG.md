@@ -16,8 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BF Fakeout Death
 - Prototype Text
 - Hot Reload
-- Basic Modding
-  - Mod Loading
 ### Fixed
 - Storymode pico Offsets
 ### Changed
