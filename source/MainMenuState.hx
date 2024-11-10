@@ -1,5 +1,6 @@
 package;
 
+import engine.Version;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -85,7 +86,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
-		var versionShit:FlxText = new FlxText(0, 0, 0, "Funkin v0.2.7.1 ( master/50fccde )\nFunkin C.U.E. "+'v${Application.current.meta.get('version')}'+#if debug GitStuff.developmentString() #else '' #end, 12);
+		var versionShit:FlxText = new FlxText(0, 0, 0, "Funkin v0.2.7.1 ( master/50fccde )\n"+Version.returnVersion(), 12);
 		versionShit.scrollFactor.set();
 		versionShit.x = 8;
 		versionShit.y = FlxG.height - versionShit.height - 4;

@@ -1,5 +1,6 @@
 package;
 
+import polymod.backends.PolymodAssets;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -197,7 +198,8 @@ class TitleState extends MusicBeatState
 
 	function getIntroTextShit():Array<Array<String>>
 	{
-		var fullText:String = Assets.getText('assets/data/introText.txt');
+		var path:String = '${AssetPaths.DATA_FOLDER}/introText.txt';
+		var fullText:String = try { PolymodAssets.getText(path); } catch(e) { Assets.getText(path); }
 
 		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];

@@ -1,11 +1,11 @@
-package modding;
+package engine.modding;
 
 #if polymod
 import polymod.Polymod;
 import polymod.PolymodConfig;
 #end
 
-class PolymodInit
+class ModInit
 {
 	/**
 	 * Amount of mods loaded
@@ -34,7 +34,7 @@ class PolymodInit
 	public static function init()
 	{
 		#if polymod
-        trace('Funkin CUE Modding v$MOD_API');
+        trace('Funkin C.U.E.Modding API v$MOD_API');
 
 		Polymod.init({
 			modRoot: 'mods/',
@@ -65,7 +65,7 @@ class PolymodInit
 		var index:Int = 1;
 		for (mod in MOD_ARRAY)
 		{
-			trace('${mod.title}');
+			trace('#$index - ${mod.title}');
 			index++;
 		}
 

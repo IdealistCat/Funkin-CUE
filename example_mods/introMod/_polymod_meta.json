@@ -1,0 +1,13 @@
+{
+	"title":"Template mod",
+	"description":"Template",
+	"contributors": [
+		{
+			"name": "YOU!",
+			"role": "Developer"
+		}
+	],
+	"api_version":"0.0.1",
+	"mod_version":"0.0.1",
+	"license":"MIT"
+}
