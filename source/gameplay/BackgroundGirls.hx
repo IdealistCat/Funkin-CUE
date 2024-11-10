@@ -2,6 +2,7 @@ package gameplay;
 
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
+import utilities.AssetPaths;
 
 class BackgroundGirls extends FlxSprite
 {
@@ -10,7 +11,7 @@ class BackgroundGirls extends FlxSprite
 		super(x, y);
 
 		// BG fangirls dissuaded
-		frames = FlxAtlasFrames.fromSparrow('assets/images/weeb/bgFreaks.png', 'assets/images/weeb/bgFreaks.xml');
+		frames = FlxAtlasFrames.fromSparrow('$AssetPaths.IMAGE_FOLDER/weeb/bgFreaks.png', '$AssetPaths.IMAGE_FOLDER/weeb/bgFreaks.xml');
 
 		animation.addByIndices('danceLeft', 'BG girls group', CoolUtil.numberArray(14), "", 24, false);
 		animation.addByIndices('danceRight', 'BG girls group', CoolUtil.numberArray(30, 15), "", 24, false);

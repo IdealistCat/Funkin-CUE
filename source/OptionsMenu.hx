@@ -11,6 +11,7 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
+import utilities.AssetPaths;
 
 class OptionsMenu extends MusicBeatState
 {
@@ -23,7 +24,7 @@ class OptionsMenu extends MusicBeatState
 
 	override function create()
 	{
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuDesat.png');
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic('$AssetPaths.IMAGE_FOLDER/menuDesat.png');
 		controlsStrings = CoolUtil.coolTextFile('assets/data/controls.txt');
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));

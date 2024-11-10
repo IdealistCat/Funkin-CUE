@@ -6,6 +6,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.util.FlxTimer;
+import utilities.AssetPaths;
 
 using StringTools;
 
@@ -245,7 +246,7 @@ class AlphaCharacter extends FlxSprite
 	public function new(x:Float, y:Float)
 	{
 		super(x, y);
-		var tex = FlxAtlasFrames.fromSparrow('assets/images/alphabet.png', 'assets/images/alphabet.xml');
+		var tex = FlxAtlasFrames.fromSparrow('$AssetPaths.IMAGE_FOLDER/alphabet.png', '$AssetPaths.IMAGE_FOLDER/alphabet.xml');
 		frames = tex;
 
 		antialiasing = true;

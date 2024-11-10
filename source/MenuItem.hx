@@ -4,6 +4,7 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
+import utilities.AssetPaths;
 
 class MenuItem extends FlxSpriteGroup
 {
@@ -14,7 +15,7 @@ class MenuItem extends FlxSpriteGroup
 	{
 		super(x, y);
 
-		var tex = FlxAtlasFrames.fromSparrow('assets/images/campaign_menu_UI_assets.png', 'assets/images/campaign_menu_UI_assets.xml');
+		var tex = FlxAtlasFrames.fromSparrow('$AssetPaths.IMAGE_FOLDER/campaign_menu_UI_assets.png', '$AssetPaths.IMAGE_FOLDER/campaign_menu_UI_assets.xml');
 
 		week = new FlxSprite();
 		week.frames = tex;

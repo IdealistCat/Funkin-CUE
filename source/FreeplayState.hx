@@ -11,6 +11,7 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import gameplay.PlayState;
 import gameplay.Song;
+import utilities.AssetPaths;
 
 using StringTools;
 
@@ -87,7 +88,7 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuBGBlue.png');
+		var bg:FlxSprite = new FlxSprite().loadGraphic('$AssetPaths.IMAGE_FOLDER/menuBGBlue.png');
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
