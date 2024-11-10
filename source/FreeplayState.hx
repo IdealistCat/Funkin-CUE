@@ -39,7 +39,7 @@ class FreeplayState extends MusicBeatState
 			if (FlxG.sound.music != null)
 			{
 				if (!FlxG.sound.music.playing)
-					FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
+					FlxG.sound.playMusic('assets/music/freakyMenu' + AssetPaths.soundExt);
 			}
 		 */
 
@@ -123,7 +123,7 @@ class FreeplayState extends MusicBeatState
 		changeSelection();
 		changeDiff();
 
-		// FlxG.sound.playMusic('assets/music/title' + TitleState.soundExt, 0);
+		// FlxG.sound.playMusic('assets/music/title' + AssetPaths.soundExt, 0);
 		// FlxG.sound.music.fadeIn(2, 0, 0.8);
 		selector = new FlxText();
 
@@ -230,7 +230,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt, 0.4);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + AssetPaths.soundExt, 0.4);
 
 		curSelected += change;
 
@@ -246,7 +246,7 @@ class FreeplayState extends MusicBeatState
 		// lerpScore = 0;
 		#end
 
-		FlxG.sound.playMusic('assets/music/' + songs[curSelected] + "_Inst" + TitleState.soundExt, 0);
+		FlxG.sound.playMusic('assets/music/' + songs[curSelected] + "_Inst" + AssetPaths.soundExt, 0);
 
 		var bullShit:Int = 0;
 

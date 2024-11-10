@@ -44,10 +44,10 @@ class DialogueBox extends FlxSpriteGroup
 		switch (PlayState.SONG.song.toLowerCase())
 		{
 			case 'senpai':
-				FlxG.sound.playMusic('assets/music/Lunchbox' + TitleState.soundExt, 0);
+				FlxG.sound.playMusic('assets/music/Lunchbox' + AssetPaths.soundExt, 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'thorns':
-				FlxG.sound.playMusic('assets/music/LunchboxScary' + TitleState.soundExt, 0);
+				FlxG.sound.playMusic('assets/music/LunchboxScary' + AssetPaths.soundExt, 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
@@ -91,7 +91,7 @@ class DialogueBox extends FlxSpriteGroup
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 			case 'roses':
-				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/ANGRY_TEXT_BOX' + TitleState.soundExt);
+				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/ANGRY_TEXT_BOX' + AssetPaths.soundExt);
 
 				box.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/weeb/pixelUI/dialogueBox-senpaiMad.png',
 					'${AssetPaths.IMAGE_FOLDER}/weeb/pixelUI/dialogueBox-senpaiMad.xml');
@@ -132,7 +132,7 @@ class DialogueBox extends FlxSpriteGroup
 		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
 		swagDialogue.font = 'Pixel Arial 11 Bold';
 		swagDialogue.color = 0xFF3F2021;
-		swagDialogue.sounds = [FlxG.sound.load('${AssetPaths.SOUND_FOLDER}/pixelText' + TitleState.soundExt, 0.6)];
+		swagDialogue.sounds = [FlxG.sound.load('${AssetPaths.SOUND_FOLDER}/pixelText' + AssetPaths.soundExt, 0.6)];
 		add(swagDialogue);
 
 		dialogue = new Alphabet(0, 80, "", false, true);
@@ -178,7 +178,7 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			remove(dialogue);
 				
-			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/clickText' + TitleState.soundExt, 0.8);
+			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/clickText' + AssetPaths.soundExt, 0.8);
 
 			if (dialogueList[1] == null && dialogueList[0] != null)
 			{

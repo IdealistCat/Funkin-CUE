@@ -31,7 +31,6 @@ using StringTools;
 class TitleState extends MusicBeatState
 {
 	static var initialized:Bool = false;
-	static public var soundExt:String = ".mp3";
 
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
@@ -45,11 +44,7 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		Polymod.init({modRoot: "mods", dirs: ['introMod']});
-
-		#if (!web)
-		TitleState.soundExt = '.ogg';
-		#end
+		Polymod.init({modRoot: "mods", framework: OPENFL});
 
 		PlayerSettings.init();
 
@@ -115,10 +110,10 @@ class TitleState extends MusicBeatState
 			// https://github.com/HaxeFlixel/flixel-addons/pull/348
 
 			// var music:FlxSound = new FlxSound();
-			// music.loadStream('assets/music/freakyMenu' + TitleState.soundExt);
+			// music.loadStream('assets/music/freakyMenu' + AssetPaths.soundExt);
 			// FlxG.sound.list.add(music);
 			// music.play();
-			FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt, 0);
+			FlxG.sound.playMusic('assets/music/freakyMenu' + AssetPaths.soundExt, 0);
 
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
@@ -249,7 +244,7 @@ class TitleState extends MusicBeatState
 			titleText.animation.play('press');
 
 			FlxG.camera.flash(FlxColor.WHITE, 1);
-			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + TitleState.soundExt, 0.7);
+			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt, 0.7);
 
 			transitioning = true;
 			// FlxG.sound.music.stop();
@@ -258,7 +253,7 @@ class TitleState extends MusicBeatState
 			{
 				FlxG.switchState(new MainMenuState());
 			});
-			// FlxG.sound.play('assets/music/titleShoot' + TitleState.soundExt, 0.7);
+			// FlxG.sound.play('assets/music/titleShoot' + AssetPaths.soundExt, 0.7);
 		}
 
 		if (pressedEnter && !skippedIntro)

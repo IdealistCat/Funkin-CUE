@@ -34,7 +34,7 @@ class MainMenuState extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
-			FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
+			FlxG.sound.playMusic('assets/music/freakyMenu' + AssetPaths.soundExt);
 		}
 
 		persistentUpdate = persistentDraw = true;
@@ -107,13 +107,13 @@ class MainMenuState extends MusicBeatState
 		{
 			if (controls.UP_P)
 			{
-				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt);
+				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + AssetPaths.soundExt);
 				changeItem(-1);
 			}
 
 			if (controls.DOWN_P)
 			{
-				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt);
+				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + AssetPaths.soundExt);
 				changeItem(1);
 			}
 
@@ -135,7 +135,7 @@ class MainMenuState extends MusicBeatState
 				else
 				{
 					selectedSomethin = true;
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + TitleState.soundExt);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt);
 
 					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 

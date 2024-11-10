@@ -224,7 +224,7 @@ class PlayState extends MusicBeatState
 			phillyTrain = new FlxSprite(2000, 360).loadGraphic('${AssetPaths.IMAGE_FOLDER}/philly/train.png');
 			add(phillyTrain);
 
-			trainSound = new FlxSound().loadEmbedded('${AssetPaths.SOUND_FOLDER}/train_passes' + TitleState.soundExt);
+			trainSound = new FlxSound().loadEmbedded('${AssetPaths.SOUND_FOLDER}/train_passes' + AssetPaths.soundExt);
 			FlxG.sound.list.add(trainSound);
 
 			// var cityLights:FlxSprite = new FlxSprite().loadGraphic(AssetPaths.win0.png);
@@ -722,7 +722,7 @@ class PlayState extends MusicBeatState
 					new FlxTimer().start(0.1, function(tmr:FlxTimer)
 					{
 						remove(blackScreen);
-						FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Lights_Turn_On' + TitleState.soundExt);
+						FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Lights_Turn_On' + AssetPaths.soundExt);
 						camFollow.y = -2050;
 						camFollow.x += 200;
 						FlxG.camera.focusOn(camFollow.getPosition());
@@ -744,7 +744,7 @@ class PlayState extends MusicBeatState
 				case 'senpai':
 					schoolIntro(doof);
 				case 'roses':
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/ANGRY' + TitleState.soundExt);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/ANGRY' + AssetPaths.soundExt);
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
@@ -819,7 +819,7 @@ class PlayState extends MusicBeatState
 							else
 							{
 								senpaiEvil.animation.play('idle');
-								FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Senpai_Dies' + TitleState.soundExt, 1, false, null, true, function()
+								FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Senpai_Dies' + AssetPaths.soundExt, 1, false, null, true, function()
 								{
 									remove(senpaiEvil);
 									remove(red);
@@ -893,7 +893,7 @@ class PlayState extends MusicBeatState
 
 			{
 				case 0:
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro3' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro3' + altSuffix + AssetPaths.soundExt, 0.6);
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic('${uiPath}${introAlts[0]}');
 					ready.scrollFactor.set();
@@ -911,7 +911,7 @@ class PlayState extends MusicBeatState
 							ready.destroy();
 						}
 					});
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro2' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro2' + altSuffix + AssetPaths.soundExt, 0.6);
 				case 2:
 					var set:FlxSprite = new FlxSprite().loadGraphic(uiPath + introAlts[1]);
 					set.scrollFactor.set();
@@ -928,7 +928,7 @@ class PlayState extends MusicBeatState
 							set.destroy();
 						}
 					});
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro1' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/intro1' + altSuffix + AssetPaths.soundExt, 0.6);
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(uiPath + introAlts[2]);
 					go.scrollFactor.set();
@@ -947,7 +947,7 @@ class PlayState extends MusicBeatState
 							go.destroy();
 						}
 					});
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/introGo' + altSuffix + TitleState.soundExt, 0.6);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/introGo' + altSuffix + AssetPaths.soundExt, 0.6);
 				case 4:
 			}
 
@@ -968,7 +968,7 @@ class PlayState extends MusicBeatState
 		lastReportedPlayheadPosition = 0;
 
 		if (!paused)
-			FlxG.sound.playMusic("assets/music/" + SONG.song + "_Inst" + TitleState.soundExt, 1, false);
+			FlxG.sound.playMusic("assets/music/" + SONG.song + "_Inst" + AssetPaths.soundExt, 1, false);
 		FlxG.sound.music.onComplete = endSong;
 		vocals.play();
 	}
@@ -985,7 +985,7 @@ class PlayState extends MusicBeatState
 		curSong = songData.song;
 
 		if (SONG.needsVoices)
-			vocals = new FlxSound().loadEmbedded("assets/music/" + curSong + "_Voices" + TitleState.soundExt);
+			vocals = new FlxSound().loadEmbedded("assets/music/" + curSong + "_Voices" + AssetPaths.soundExt);
 		else
 			vocals = new FlxSound();
 
@@ -1619,7 +1619,7 @@ class PlayState extends MusicBeatState
 
 			if (storyPlaylist.length <= 0)
 			{
-				FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
+				FlxG.sound.playMusic('assets/music/freakyMenu' + AssetPaths.soundExt);
 
 				transIn = FlxTransitionableState.defaultTransIn;
 				transOut = FlxTransitionableState.defaultTransOut;
@@ -1658,7 +1658,7 @@ class PlayState extends MusicBeatState
 					add(blackShit);
 					camHUD.visible = false;
 
-					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Lights_Shut_off' + TitleState.soundExt);
+					FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/Lights_Shut_off' + AssetPaths.soundExt);
 				}
 
 				FlxTransitionableState.skipNextTransIn = true;
@@ -2051,8 +2051,8 @@ class PlayState extends MusicBeatState
 			songScore -= 10;
 			songMisses++;
 
-			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/missnote' + FlxG.random.int(1, 3) + TitleState.soundExt, FlxG.random.float(0.1, 0.2));
-			// FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/missnote1' + TitleState.soundExt, 1, false);
+			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/missnote' + FlxG.random.int(1, 3) + AssetPaths.soundExt, FlxG.random.float(0.1, 0.2));
+			// FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/missnote1' + AssetPaths.soundExt, 1, false);
 			// FlxG.log.add('played imss note');
 
 			boyfriend.stunned = true;
@@ -2165,7 +2165,7 @@ class PlayState extends MusicBeatState
 
 	function fastCarDrive()
 	{
-		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/carPass' + FlxG.random.int(0, 1) + TitleState.soundExt, 0.7);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/carPass' + FlxG.random.int(0, 1) + AssetPaths.soundExt, 0.7);
 
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
@@ -2231,7 +2231,7 @@ class PlayState extends MusicBeatState
 
 	function lightningStrikeShit():Void
 	{
-		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/thunder_' + FlxG.random.int(1, 2) + TitleState.soundExt);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/thunder_' + FlxG.random.int(1, 2) + AssetPaths.soundExt);
 		halloweenBG.animation.play('lightning');
 
 		lightningStrikeBeat = curBeat;

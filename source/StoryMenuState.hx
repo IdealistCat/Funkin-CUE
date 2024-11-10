@@ -79,7 +79,7 @@ class StoryMenuState extends MusicBeatState
 		if (FlxG.sound.music != null)
 		{
 			if (!FlxG.sound.music.playing)
-				FlxG.sound.playMusic('assets/music/freakyMenu' + TitleState.soundExt);
+				FlxG.sound.playMusic('assets/music/freakyMenu' + AssetPaths.soundExt);
 		}
 
 		persistentUpdate = persistentDraw = true;
@@ -265,7 +265,7 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
-			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/cancelMenu' + TitleState.soundExt);
+			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/cancelMenu' + AssetPaths.soundExt);
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
 		}
@@ -283,7 +283,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (stopspamming == false)
 			{
-				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + TitleState.soundExt);
+				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt);
 
 				grpWeekText.members[curWeek].week.animation.resume();
 				grpWeekCharacters.members[1].animation.play('bfConfirm');
@@ -379,7 +379,7 @@ class StoryMenuState extends MusicBeatState
 			bullShit++;
 		}
 
-		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + TitleState.soundExt);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + AssetPaths.soundExt);
 
 		updateText();
 	}

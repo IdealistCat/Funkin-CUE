@@ -1,5 +1,6 @@
 package;
 
+import utilities.AssetPaths;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.addons.transition.FlxTransitionableState;
@@ -21,12 +22,6 @@ class MusicBeatState extends FlxUIState
 
 	override function create()
 	{
-		if (transIn != null)
-			trace('reg ' + transIn.region);
-
-		#if (!web)
-		TitleState.soundExt = '.ogg';
-		#end
 
 		super.create();
 	}
