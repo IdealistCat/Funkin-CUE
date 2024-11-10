@@ -22,7 +22,7 @@ class GitStuff
     public static function developmentString()
     {
         #if debug
-        return  '( ${GIT_BRANCH} : ${GIT_COMMIT}${GIT_LOCALCHANGES ? ' : MODIFIED' : ''})';
+        return  '( ${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES ? ' | MODIFIED' : ''})';
         #else
         return '';
         #end
