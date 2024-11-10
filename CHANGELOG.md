@@ -8,8 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Window Title (just a bit)
 - Preloader State
+- Size of menuBG on MainMenuState
 ### Fixed
 - Type not Found: ModInit compiling error
+### Added
+- More code Folder
 
 ## [0.1.0] - 11/10/2024
 ### Added
