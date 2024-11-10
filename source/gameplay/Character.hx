@@ -16,7 +16,7 @@ class Character extends FlxSprite
 
 	public var holdTimer:Float = 0;
 
-	public var assetPath_prefix:String = "assets/images";
+	public var assetPath_prefix:String = "assets/images/characters";
 
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
