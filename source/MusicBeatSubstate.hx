@@ -3,6 +3,7 @@ package;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.FlxSubState;
+import polymod.Polymod;
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -38,6 +39,8 @@ class MusicBeatSubstate extends FlxSubState
 		if (oldStep != curStep && curStep > 0)
 			stepHit();
 
+		if (FlxG.keys.justReleased.F2)
+			resetSubState();
 
 		super.update(elapsed);
 	}

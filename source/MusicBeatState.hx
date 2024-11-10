@@ -7,6 +7,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
+import polymod.Polymod;
 
 class MusicBeatState extends FlxUIState
 {
@@ -36,6 +37,11 @@ class MusicBeatState extends FlxUIState
 
 		if (oldStep != curStep && curStep > 0)
 			stepHit();
+
+		if (FlxG.keys.justReleased.F1)
+			Polymod.init({modRoot: "mods", framework: OPENFL});
+		if (FlxG.keys.justReleased.F2)
+			FlxG.resetState();
 
 		super.update(elapsed);
 	}

@@ -279,43 +279,37 @@ class StoryMenuState extends MusicBeatState
 
 	function selectWeek()
 	{
-		if (weekUnlocked[curWeek])
+		if (!weekUnlocked[curWeek]) return;
+		
+		if (stopspamming == false)
 		{
-			if (stopspamming == false)
-			{
-				FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt);
-
-				grpWeekText.members[curWeek].week.animation.resume();
-				grpWeekCharacters.members[1].animation.play('bfConfirm');
-				stopspamming = true;
-			}
-
-			PlayState.storyPlaylist = weekData[curWeek];
-			PlayState.isStoryMode = true;
-			selectedWeek = true;
-
-			var diffic = "";
-
-			switch (curDifficulty)
-			{
-				case 0:
-					diffic = '-easy';
-				case 2:
-					diffic = '-hard';
-			}
-
-			PlayState.storyDifficulty = curDifficulty;
-
-			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-			PlayState.storyWeek = curWeek;
-			PlayState.campaignScore = 0;
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				if (FlxG.sound.music != null)
-					FlxG.sound.music.stop();
-				FlxG.switchState(new PlayState());
-			});
+			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt);
+			grpWeekText.members[curWeek].week.animation.resume();
+			grpWeekCharacters.members[1].animation.play('bfConfirm');
+			stopspamming = true;
 		}
+		PlayState.storyPlaylist = weekData[curWeek];
+		PlayState.isStoryMode = true;
+		selectedWeek = true;
+		var diffic = "";
+		
+		switch (curDifficulty)
+		{
+			case 0:
+				diffic = '-easy';
+			case 2:
+				diffic = '-hard';
+		}
+		PlayState.storyDifficulty = curDifficulty;
+		PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+		PlayState.storyWeek = curWeek;
+		PlayState.campaignScore = 0;
+		new FlxTimer().start(1, function(tmr:FlxTimer)
+		{
+			if (FlxG.sound.music != null)
+				FlxG.sound.music.stop();
+			FlxG.switchState(new PlayState());
+		});
 	}
 
 	function changeDifficulty(change:Int = 0):Void

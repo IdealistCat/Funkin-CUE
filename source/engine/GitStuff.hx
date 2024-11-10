@@ -19,10 +19,12 @@ class GitStuff
 	 */
 	public static var GIT_LOCALCHANGES:Bool = GitCommit.getGitHasLocalChanges();
 
+	public static var warningSymbol:String = "/!\\";
+
     public static function developmentString()
     {
         #if debug
-        return  '( ${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES ? ' UNCOMMIT ' : ''})';
+        return  '( ${GIT_BRANCH}/${GIT_COMMIT}${GIT_LOCALCHANGES ? ' [$warningSymbol UNCOMMIT CHANGES $warningSymbol] ' : ''})';
         #else
         return '';
         #end
