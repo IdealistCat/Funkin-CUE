@@ -1,12 +1,16 @@
-# Friday Night Funkin
+# Friday Night Funkin C.U.E.
 
-This is the repository for Friday Night Funkin, a game originally made for Ludum Dare 47 "Stuck In a Loop".
+This is the repository for Friday Night Funkin C.U.E. (Continuous Updates Engine) (pronounced Queue), a engine based of Funkin v0.2.7.1
+
+## PLAY OG FNF
+PLAY IT
+WE GOT DIS GAME
 
 Play the Ludum Dare prototype here: https://ninja-muffin24.itch.io/friday-night-funkin
 Play the Newgrounds one here: https://www.newgrounds.com/portal/view/770371
 Support the project on the itch.io page: https://ninja-muffin24.itch.io/funkin
 
-## Credits / shoutouts
+## Engine Credits / shoutouts
 
 - [sinco (me!)](https://www.youtube.com/@idealistcat) - Programmer
 
