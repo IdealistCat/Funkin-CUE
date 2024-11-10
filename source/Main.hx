@@ -17,7 +17,7 @@ class Main extends Sprite
 		// generates unique id: "FNFCUE_YYYY-MM-DD_HH'MM'SS_CRASH"
 
 		var crashDumper = new CrashDumper(unique_id);
-		crashDumper.path = './crashdumper';
+		crashDumper.set_path('./crashdumper');
 		// starts the crashDumper
 
 		#if !mobile
