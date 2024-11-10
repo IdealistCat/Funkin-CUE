@@ -20,4 +20,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Storymode pico Offsets
 ### Changed
 - scoreTxt position
-- mainmenustate Version text is in the top left corner now

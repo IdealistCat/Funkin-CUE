@@ -84,11 +84,11 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
-		var versionShit:FlxText = new FlxText(0, 0, 0, "Base: Funkin v0.2.7.1 ( 50fccde | master | modified )\nFunkin CUE v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(0, 0, 0, "Mod Base: Funkin v0.2.7.1 ( 50fccde | master | modified )\nFunkin CUE v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
-		versionShit.x = FlxG.width - versionShit.width - 16;
+		versionShit.x = 8;
 		versionShit.y = FlxG.height - versionShit.height - 4;
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 
 		changeItem();
