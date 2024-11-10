@@ -19,6 +19,7 @@ class Note extends FlxSprite
 	public var tooLate:Bool = false;
 	public var wasGoodHit:Bool = false;
 	public var prevNote:Note;
+	private var willMiss:Bool = false;
 
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
@@ -173,33 +174,39 @@ class Note extends FlxSprite
 		super.update(elapsed);
 
 		if (mustPress)
-		{
-			// The * 0.5 us so that its easier to hit them too late, instead of too early
-			if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
 			{
-				canBeHit = true;
+				// miss on the NEXT frame so lag doesnt make u miss notes
+				if (willMiss && !wasGoodHit)
+				{
+					tooLate = true;
+					canBeHit = false;
+				}
+				else
+				{
+					if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset)
+					{ // The * 0.5 is so that it's easier to hit them too late, instead of too early
+						if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+							canBeHit = true;
+					}
+					else
+					{
+						canBeHit = true;
+						willMiss = true;
+					}
+				}
 			}
 			else
-				canBeHit = false;
-
-			if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset)
-				tooLate = true;
-		}
-		else
-		{
-			canBeHit = false;
-
-			if (strumTime <= Conductor.songPosition)
 			{
-				wasGoodHit = true;
+				canBeHit = false;
+	
+				if (strumTime <= Conductor.songPosition)
+					wasGoodHit = true;
 			}
-		}
-
-		if (tooLate)
-		{
-			if (alpha > 0.3)
-				alpha = 0.3;
-		}
+	
+			if (tooLate)
+			{
+				if (alpha > 0.3)
+					alpha = 0.3;
+			}
 	}
 }
