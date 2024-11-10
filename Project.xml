@@ -78,13 +78,22 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="newgrounds"/>
 	<haxelib name="faxe" if='switch'/>
-	<haxelib name="polymod"/>
+	<haxelib name="polymod" unless="web"/>
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
 
 	<!--In case you want to use nape with flixel-->
 	<!--<haxelib name="nape-haxe4" />-->
+	<!-- ______________________________ My defines _____________________________ -->
+
+	<haxedef name="web" if="html5"/>
+	<haxedef name="web" if="html"/>
+	<haxedef name="web" if="WEB_TEST"/>
+
+	<haxedef name="NO_MODDING" if="web"/>
+
+	<haxedef name="POLYMOD_ERRORS_ENABLED" if="POLYMOD_ERRORS"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 	 

@@ -23,7 +23,6 @@ class MusicBeatState extends FlxUIState
 
 	override function create()
 	{
-		Polymod.init({modRoot: "mods", framework: OPENFL});
 		super.create();
 	}
 

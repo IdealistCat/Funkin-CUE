@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Scoretxt Outline
 - BF Fakeout Death
 - Prototype Text
+- Hot Reload
 ### Fixed
 - Storymode pico Offsets
 ### Changed
