@@ -1,4 +1,4 @@
-package;
+package menus;
 
 import engine.Version;
 import flixel.FlxG;

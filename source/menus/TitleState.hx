@@ -1,4 +1,4 @@
-package;
+package menus;
 
 import polymod.backends.PolymodAssets;
 import flixel.FlxG;

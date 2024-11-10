@@ -1,5 +1,7 @@
-package;
+package menus;
 
+import utilities.AssetPaths;
+import gameplay.Note;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;

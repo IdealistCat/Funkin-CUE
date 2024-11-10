@@ -1,4 +1,4 @@
-package;
+package menus;
 
 import utilities.AssetPaths;
 import gameplay.PlayState;

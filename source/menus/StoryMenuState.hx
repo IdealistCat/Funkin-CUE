@@ -1,5 +1,7 @@
-package;
+package menus;
 
+import menus.story.MenuItem;
+import menus.story.MenuCharacter;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
