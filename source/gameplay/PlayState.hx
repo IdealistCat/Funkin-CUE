@@ -1722,7 +1722,7 @@ class PlayState extends MusicBeatState
 				daRating = 'bad';
 		 */
 
-		var pixelShitPart1:String = "";
+		var pixelShitPart1:String = "ui/";
 		var pixelShitPart2:String = '';
 
 		if (curStage.startsWith('school'))
