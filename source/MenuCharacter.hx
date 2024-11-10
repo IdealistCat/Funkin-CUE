@@ -14,7 +14,7 @@ class MenuCharacter extends FlxSprite
 
 		this.character = character;
 
-		var tex = FlxAtlasFrames.fromSparrow('$AssetPaths.IMAGE_FOLDER/campaign_menu_UI_characters.png', '$AssetPaths.IMAGE_FOLDER/campaign_menu_UI_characters.xml');
+		var tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}//campaign_menu_UI_characters.png', '${AssetPaths.IMAGE_FOLDER}//campaign_menu_UI_characters.xml');
 		frames = tex;
 
 		animation.addByPrefix('bf', "BF idle dance white", 24);
