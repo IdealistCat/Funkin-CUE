@@ -33,6 +33,11 @@ class Note extends FlxSprite
 	public static var RED_NOTE:Int = 3;
 
 	public var assetPath:String = '${AssetPaths.UI_FOLDER}';
+	
+	
+	public var ignoreNote:Bool = false;
+	public var earlyHitMult:Float = 1;
+	public var lateHitMult:Float = 1;
 
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false)
 	{
@@ -174,38 +179,29 @@ class Note extends FlxSprite
 		super.update(elapsed);
 
 		if (mustPress)
-		{
-			if (isSustainNote)
 			{
-				if (strumTime - Conductor.songPosition <= (((166 * Conductor.timeScale) / 0.5))
-					&& strumTime - Conductor.songPosition >= (((-166 * Conductor.timeScale) / 1)))
-					canBeHit = true;
-				else
-					canBeHit = false;
+				canBeHit = (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * lateHitMult) &&
+							strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult));
+	
+				if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
+					tooLate = true;
 			}
 			else
 			{
-				if (strumTime - Conductor.songPosition <= (((166 * Conductor.timeScale) / 1))
-					&& strumTime - Conductor.songPosition >= (((-166 * Conductor.timeScale) / 1)))
-					canBeHit = true;
-				else
-					canBeHit = false;
+				canBeHit = false;
+	
+				if (!wasGoodHit && strumTime <= Conductor.songPosition)
+				{
+					if(!isSustainNote || (prevNote.wasGoodHit && !ignoreNote))
+						wasGoodHit = true;
+				}
 			}
-			/*if (strumTime - Conductor.songPosition < (-166 * Conductor.timeScale) && !wasGoodHit)
-				tooLate = true; */
-		}
-		else
-		{
-			canBeHit = false;
-			// if (strumTime <= Conductor.songPosition)
-			//	wasGoodHit = true;
-		}
-
-		if (tooLate && !wasGoodHit)
-		{
-			if (alpha > 0.3)
-				alpha = 0.3;
-		}
+	
+			if (tooLate)
+			{
+				if (alpha > 0.3)
+					alpha = 0.3;
+			}
 
 	}
 }

@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Folders to asset files
 - Coma-seperated Score
 - Miss Counter
-- Kade engine 1.8 input
+- Psych engine 1.0 input
 - Crashdumper by larsiusprime (crash handler)
 - Scoretxt Outline
 ### Fixed
