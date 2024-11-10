@@ -86,8 +86,8 @@ class MainMenuState extends MusicBeatState
 
 		var versionShit:FlxText = new FlxText(0, 0, 0, "Base: Funkin v0.2.7.1 ( 50fccde | master | modified )\nFunkin CUE v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
-		versionShit.x = FlxG.width - versionShit.width + 5;
-		versionShit.y = FlxG.height - versionShit.height + 4;
+		versionShit.x = FlxG.width - versionShit.width - 5;
+		versionShit.y = FlxG.height - versionShit.height - 4;
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 
