@@ -1264,7 +1264,8 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		scoreTxt.text = "Score:" + songScore;
+		var commaSeparated:Bool = true;
+		scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}';
 
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
