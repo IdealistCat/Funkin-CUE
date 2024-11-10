@@ -57,7 +57,7 @@ class Conductor
 			totalSteps += deltaSteps;
 			totalPos += ((60 / curBPM) * 1000 / 4) * deltaSteps;
 		}
-		if (bpmChangeMap != []) trace("new BPM map: " + bpmChangeMap);
+		if (bpmChangeMap.length > 0) trace("new BPM map: " + bpmChangeMap);
 	}
 
 	public static function changeBPM(newBpm:Int)
