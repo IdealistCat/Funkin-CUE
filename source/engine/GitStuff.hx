@@ -1,8 +1,8 @@
-package cue;
+package engine;
 
 import funkin.util.macro.GitCommit;
 
-class Git
+class GitStuff
 {
 	/**
 	 * Git commit
@@ -22,7 +22,7 @@ class Git
     public static function developmentString()
     {
         #if debug
-        return  '( ${GIT_BRANCH} : ${GIT_HASH}${GIT_HAS_LOCAL_CHANGES ? ' : MODIFIED' : ''})'
+        return  '( ${GIT_BRANCH} : ${GIT_COMMIT}${GIT_LOCALCHANGES ? ' : MODIFIED' : ''})'
         #else
         return '';
         #end
