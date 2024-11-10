@@ -267,6 +267,17 @@ class Character extends FlxSprite
 
 				flipX = true;
 
+			case 'fakeoutBf':
+				var tex = FlxAtlasFrames.fromSparrow('$assetPath_prefix/bfFakeout.png', '$assetPath_prefix/bfFakeout.xml');
+				frames = tex;
+				animation.addByPrefix('suspence', "fake out death BF", 24, false);
+
+				addOffset('suspence', 0, 0);
+
+				playAnim('suspence');
+
+				flipX = true;
+
 			case 'bf':
 				var tex = FlxAtlasFrames.fromSparrow('$assetPath_prefix/BOYFRIEND.png', '$assetPath_prefix/BOYFRIEND.xml');
 				frames = tex;
@@ -505,7 +516,11 @@ class Character extends FlxSprite
 			flipX = !flipX;
 
 			// Doesn't flip for BF, since his are already in the right place???
-			if (!curCharacter.startsWith('bf'))
+			if (!curCharacter.startsWith('bf')
+				&& animation.getAnimationList().contains('singLEFT')
+				&& animation.getAnimationList().contains('singRIGHT')
+				&& animation.getAnimationList().contains('singLEFTmiss')
+				&& animation.getAnimationList().contains('singRIGHTmiss'))
 			{
 				// var animArray
 				var oldRight = animation.getByName('singRIGHT').frames;

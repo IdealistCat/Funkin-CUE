@@ -10,6 +10,9 @@ import flixel.tweens.FlxTween;
 
 class GameOverState extends FlxTransitionableState
 {
+	
+	public static var faked:Bool = false;
+
 	var bfX:Float = 0;
 	var bfY:Float = 0;
 
