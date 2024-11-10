@@ -15,7 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Crashdumper by larsiusprime
 
 ### Fixed
-- Flipped Storymode Pico (huh?)
 - Storymode pico Offsets
 
 ### Changed

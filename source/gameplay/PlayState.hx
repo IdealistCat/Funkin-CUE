@@ -680,7 +680,7 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
-		scoreTxt = new FlxText(healthBarBG.x + healthBarBG.width - 190, healthBarBG.y + 30, 0, "", 20);
+		scoreTxt = new FlxText(healthBarBG.getGraphicMidpoint().x, healthBarBG.y + 30, 0, "", 20);
 		scoreTxt.setFormat("assets/fonts/vcr.ttf", 16, FlxColor.WHITE, CENTER);
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
@@ -1266,7 +1266,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		var commaSeparated:Bool = true;
-		scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} || Misses: ${songMisses}';
+		scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} | Misses: ${songMisses}';
 
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
