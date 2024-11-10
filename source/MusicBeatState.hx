@@ -23,7 +23,7 @@ class MusicBeatState extends FlxUIState
 
 	override function create()
 	{
-
+		Polymod.init({modRoot: "mods", framework: OPENFL});
 		super.create();
 	}
 
@@ -38,9 +38,7 @@ class MusicBeatState extends FlxUIState
 		if (oldStep != curStep && curStep > 0)
 			stepHit();
 
-		if (FlxG.keys.justReleased.F1)
-			Polymod.init({modRoot: "mods", framework: OPENFL});
-		if (FlxG.keys.justReleased.F2)
+		if (FlxG.keys.justReleased.F5)
 			FlxG.resetState();
 
 		super.update(elapsed);
