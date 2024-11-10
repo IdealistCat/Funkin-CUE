@@ -109,7 +109,7 @@ class MainMenuState extends MusicBeatState
 		{
 			if (controls.RESET)
 				{
-					throw 'Crash Handler Test!';
+					throw 'Forced crash';
 				}
 
 			if (controls.UP_P)
