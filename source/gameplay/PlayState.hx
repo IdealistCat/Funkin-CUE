@@ -681,7 +681,7 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		scoreTxt = new FlxText(healthBarBG.getGraphicMidpoint().x, healthBarBG.y + 30, 0, "", 20);
-		scoreTxt.setFormat("assets/fonts/vcr.ttf", 16, FlxColor.WHITE, CENTER);
+		scoreTxt.setFormat("assets/fonts/vcr.ttf", 16, FlxColor.WHITE, CENTER, OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
 
@@ -1649,8 +1649,7 @@ class PlayState extends MusicBeatState
 				if (storyDifficulty == 2)
 					difficulty = '-hard';
 
-				trace('LOADING NEXT SONG');
-				trace(PlayState.storyPlaylist[0].toLowerCase() + difficulty);
+				trace('LOADING NEXT SONG ${PlayState.storyPlaylist[0].toLowerCase() + difficulty}');
 
 				if (SONG.song.toLowerCase() == 'eggnog')
 				{

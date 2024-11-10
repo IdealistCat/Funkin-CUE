@@ -12,10 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Coma-seperated Score
 - Miss Counter
 - Kade engine 1.8 input
-- Crashdumper by larsiusprime
-
+- Crashdumper by larsiusprime (crash handler)
+- Scoretxt Outline
 ### Fixed
 - Storymode pico Offsets
-
 ### Changed
 - scoreTxt position
