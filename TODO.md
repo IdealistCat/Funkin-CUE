@@ -5,3 +5,7 @@ TODO
 - Add Pico Mixes
 - Added Character Select
 - Make Base game weeks a mod
+- multiple result screen characters support
+- past 9 characters in character select support
+- song "sectioning" support
+- Expansion mod (drago)
