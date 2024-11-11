@@ -7,5 +7,5 @@ TODO
 - Make Base game weeks a mod
 - multiple result screen characters support
 - past 9 characters in character select support
-- song "sectioning" support
+- song variation support
 - Expansion mod (drago)
