@@ -9,7 +9,6 @@ class AssetPaths
 
     public static var IMAGE_FOLDER = "assets/images";
     public static var UI_FOLDER = '$IMAGE_FOLDER/ui';
-    public static var STORYMENU_FOLDER = '$IMAGE_FOLDER/storymenu';
 
     public static var soundExt:String = #if web ".mp3" #else ".ogg" #end;
     public static var SOUND_FOLDER = "assets/sounds";

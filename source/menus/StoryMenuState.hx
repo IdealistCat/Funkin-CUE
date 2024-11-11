@@ -39,9 +39,9 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
-		['spooky-kids', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['spooky', 'bf', 'gf'],
 		['pico', 'bf', 'gf'],
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
@@ -290,7 +290,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt);
 			grpWeekText.members[curWeek].week.animation.resume();
-			grpWeekCharacters.members[1].animation.play('${grpWeekCharacters.members[1].character}Confirm');
+			grpWeekCharacters.members[1].animation.play('bfConfirm');
 			stopspamming = true;
 		}
 		PlayState.storyPlaylist = weekData[curWeek];
@@ -385,9 +385,9 @@ class StoryMenuState extends MusicBeatState
 
 	function updateText()
 	{
-		grpWeekCharacters.members[0].reloadChar(weekCharacters[curWeek][0]);
-		grpWeekCharacters.members[1].reloadChar(weekCharacters[curWeek][1]);
-		grpWeekCharacters.members[2].reloadChar(weekCharacters[curWeek][2]);
+		grpWeekCharacters.members[0].animation.play(weekCharacters[curWeek][0]);
+		grpWeekCharacters.members[1].animation.play(weekCharacters[curWeek][1]);
+		grpWeekCharacters.members[2].animation.play(weekCharacters[curWeek][2]);
 		txtTracklist.text = "Tracks\n";
 
 		switch (grpWeekCharacters.members[0].animation.curAnim.name)

@@ -2,6 +2,8 @@ package;
 
 import menus.TitleState;
 import openfl.Assets;
+import crashdumper.SessionData;
+import crashdumper.CrashDumper;
 import flixel.FlxGame;
 import openfl.display.FPS;
 import openfl.display.Sprite;
