@@ -76,8 +76,6 @@ class StoryMenuState extends MusicBeatState
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
 
-	var weekCharacterThing:MenuCharacter;
-
 	override function create()
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -104,8 +102,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
 
-		var ui_tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_assets.png',
-			'${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_assets.xml');
+		var ui_tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_assets.png', '${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_assets.xml');
 		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
@@ -143,10 +140,7 @@ class StoryMenuState extends MusicBeatState
 			}
 		}
 
-		weekCharacterThing = new MenuCharacter(0, 'bf');
-		weekCharacterThing.y += 70;
-		weekCharacterThing.antialiasing = true;
-		createCharacters();
+		chars();
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
@@ -263,9 +257,8 @@ class StoryMenuState extends MusicBeatState
 
 	function selectWeek()
 	{
-		if (!weekUnlocked[curWeek])
-			return;
-
+		if (!weekUnlocked[curWeek]) return;
+		
 		if (stopspamming == false)
 		{
 			FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/confirmMenu' + AssetPaths.soundExt);
@@ -277,7 +270,7 @@ class StoryMenuState extends MusicBeatState
 		PlayState.isStoryMode = true;
 		selectedWeek = true;
 		var diffic = "";
-
+		
 		switch (curDifficulty)
 		{
 			case 0:
@@ -340,7 +333,11 @@ class StoryMenuState extends MusicBeatState
 	function changeWeek(change:Int = 0):Void
 	{
 		curWeek += change;
-		createCharacters();
+
+		grpWeekCharacters.remove(grpWeekCharacters.members[0]);
+		grpWeekCharacters.remove(grpWeekCharacters.members[1]);
+		grpWeekCharacters.remove(grpWeekCharacters.members[2]);
+		chars();
 
 		if (curWeek >= weekData.length)
 			curWeek = 0;
@@ -412,45 +409,35 @@ class StoryMenuState extends MusicBeatState
 		#end
 	}
 
-	public function createCharacters()
+	function chars()
 	{
-		try
-		{
-			grpWeekCharacters.remove(grpWeekCharacters.members[0]);
-			grpWeekCharacters.remove(grpWeekCharacters.members[1]);
-			grpWeekCharacters.remove(grpWeekCharacters.members[2]);
-		}
-		catch (e)
-		{
-			trace('Chars alr gone');
-		}
-
 		for (char in 0...3)
-		{
-			weekCharacterThing.x = (FlxG.width * 0.25) * (1 + char) - 150;
-			weekCharacterThing.character = weekCharacters[curWeek][char];
-			switch (weekCharacterThing.character)
 			{
-				case 'dad':
-					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
-					weekCharacterThing.updateHitbox();
-
-				case 'bf':
-					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
-					weekCharacterThing.updateHitbox();
-					weekCharacterThing.x -= 80;
-				case 'gf':
-					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
-					weekCharacterThing.updateHitbox();
-				case 'pico':
-					weekCharacterThing.flipX = true;
-					weekCharacterThing.y -= 20;
-				case 'parents-christmas':
-					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
-					weekCharacterThing.updateHitbox();
+				var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, weekCharacters[curWeek][char]);
+				weekCharacterThing.y += 70;
+				weekCharacterThing.antialiasing = true;
+				switch (weekCharacterThing.character)
+				{
+					case 'dad':
+						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
+						weekCharacterThing.updateHitbox();
+	
+					case 'bf':
+						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+						weekCharacterThing.updateHitbox();
+						weekCharacterThing.x -= 80;
+					case 'gf':
+						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
+						weekCharacterThing.updateHitbox();
+					case 'pico':
+						weekCharacterThing.flipX = true;
+						weekCharacterThing.y -= 20;
+					case 'parents-christmas':
+						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+						weekCharacterThing.updateHitbox();
+				}
+	
+				grpWeekCharacters.add(weekCharacterThing);
 			}
-
-			grpWeekCharacters.add(weekCharacterThing);
-		}
 	}
 }
