@@ -13,4 +13,5 @@ class AssetPaths
     public static var soundExt:String = #if web ".mp3" #else ".ogg" #end;
     public static var SOUND_FOLDER = "assets/sounds";
     public static var MUSIC_FOLDER = "assets/music";
+    public static var SONG_FOLDER = "assets/music/songs";
 }
