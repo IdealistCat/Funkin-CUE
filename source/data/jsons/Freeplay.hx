@@ -21,6 +21,8 @@ class JSONmanager
 	{
 		var json:FreeplayJSON;
 
+		json  = myjson;
+
 		json.songName ??= 'unnamed';
 		json.charIcon ??= 'face';
 		json.rating ??= 1;
