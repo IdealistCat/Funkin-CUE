@@ -8,13 +8,17 @@ class MenuCharacter extends FlxSprite
 {
 	public var character:String;
 
+	var file:String = 'storymenu/characters/';
+
 	public function new(x:Float, character:String = 'bf')
 	{
 		super(x);
 
 		this.character = character;
 
-		var tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_characters.png', '${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_characters.xml');
+		file += character;
+
+		var tex:FlxAtlasFrames = try { spritesheet(); } catch(e) { file = 'campaign_menu_UI_characters'; spritesheet(); }
 		frames = tex;
 
 		animation.addByPrefix('bf', "BF idle dance white", 24);
@@ -30,5 +34,10 @@ class MenuCharacter extends FlxSprite
 
 		animation.play(character);
 		updateHitbox();
+	}
+
+	public function spritesheet()
+	{
+		return FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/$file.png', '${AssetPaths.IMAGE_FOLDER}/$file.xml');
 	}
 }
