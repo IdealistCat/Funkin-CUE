@@ -181,7 +181,7 @@ class FreeplayState extends MusicBeatState
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		#end
 
-		FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected] + "_Inst" + AssetPaths.soundExt, 0);
+		FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected].songName + "_Inst" + AssetPaths.soundExt, 0);
 
 		var bullShit:Int = 0;
 
