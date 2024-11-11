@@ -14,21 +14,45 @@ class MenuCharacter extends FlxSprite
 
 		this.character = character;
 
-		var tex = FlxAtlasFrames.fromSparrow('${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_characters.png', '${AssetPaths.IMAGE_FOLDER}/campaign_menu_UI_characters.xml');
-		frames = tex;
+		animStuff();
+	}
 
-		animation.addByPrefix('bf', "BF idle dance white", 24);
-		animation.addByPrefix('bfConfirm', 'BF HEY!!', 24, false);
-		animation.addByPrefix('gf', "GF Dancing Beat WHITE", 24);
-		animation.addByPrefix('dad', "Dad idle dance BLACK LINE", 24);
-		animation.addByPrefix('spooky', "spooky dance idle BLACK LINES", 24);
-		animation.addByPrefix('pico', "Pico Idle Dance", 24);
-		animation.addByPrefix('mom', "Mom Idle BLACK LINES", 24);
-		animation.addByPrefix('parents-christmas', "Parent Christmas Idle", 24);
-		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);
+	public function reloadChar(newchar:String = 'bf')
+	{
+		this.character = newchar;
+		animStuff();
+	}
+
+	public function animStuff()
+	{
+		try {var tex = FlxAtlasFrames.fromSparrow('${AssetPaths.STORYMENU_FOLDER}/$character.png', '${AssetPaths.STORYMENU_FOLDER}/$character.xml');
+		frames = tex;}catch(e){trace('uhoh');}
+
+		switch (character)
+		{
+			case 'bf':
+				animation.addByPrefix('bf', "BF idle dance white", 24);
+				animation.addByPrefix('bfConfirm', 'BF HEY!!', 24, false);
+			case 'gf':
+				animation.addByPrefix('gf', "GF Dancing Beat WHITE", 24);
+			case 'dad':
+				animation.addByPrefix('dad', "Dad idle dance BLACK LINE", 24);
+			case 'spooky-kids':
+				animation.addByPrefix('spooky-kids', "spooky dance idle BLACK LINES", 24);
+			case 'pico':
+				animation.addByPrefix('pico', "Pico Idle Dance", 24);
+			case 'mom':
+				animation.addByPrefix('mom', "Mom Idle BLACK LINES", 24);
+			case 'parents-christmas':
+				animation.addByPrefix('parents-christmas', "Parent Christmas Idle", 24);
+			case 'senpai':
+				animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);
+			default:
+				this.visible = false;
+		}
 		// Parent Christmas Idle
 
-		animation.play(character);
-		updateHitbox();
+		try{animation.play(character);
+		updateHitbox();}catch(e){trace('uhoh2');}
 	}
 }
