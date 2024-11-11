@@ -1,11 +1,4 @@
 TODO
 - Add Full Mod support
-- Add Week 7
-- Add Weekend 1
-- Add Pico Mixes
-- Added Character Select
-- Make Base game weeks a mod
-- multiple result screen characters support
-- past 9 characters in character select support
-- song variation support
-- Expansion mod (drago)
+- Character JSONs
+- Redone Story Menu
