@@ -14,8 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Type not Found: ModInit compiling error
 ### Added
-- Week 7: Ugh, Guns, Stress
 - More code Folders
+### Removed
+- Weeks 2 - 6
+- Story mode (for now)
 
 ## [0.1.0] - 11/10/2024
 ### Added
