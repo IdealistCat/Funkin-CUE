@@ -140,7 +140,34 @@ class StoryMenuState extends MusicBeatState
 			}
 		}
 
-		chars();
+		for (char in 0...3)
+		{
+			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, weekCharacters[curWeek][char]);
+			weekCharacterThing.y += 70;
+			weekCharacterThing.antialiasing = true;
+			switch (weekCharacterThing.character)
+			{
+				case 'dad':
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
+					weekCharacterThing.updateHitbox();
+
+				case 'bf':
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+					weekCharacterThing.updateHitbox();
+					weekCharacterThing.x -= 80;
+				case 'gf':
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
+					weekCharacterThing.updateHitbox();
+				case 'pico':
+					weekCharacterThing.flipX = true;
+					weekCharacterThing.y -= 20;
+				case 'parents-christmas':
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+					weekCharacterThing.updateHitbox();
+			}
+
+			grpWeekCharacters.add(weekCharacterThing);
+		}
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
@@ -334,11 +361,6 @@ class StoryMenuState extends MusicBeatState
 	{
 		curWeek += change;
 
-		grpWeekCharacters.remove(grpWeekCharacters.members[0]);
-		grpWeekCharacters.remove(grpWeekCharacters.members[1]);
-		grpWeekCharacters.remove(grpWeekCharacters.members[2]);
-		chars();
-
 		if (curWeek >= weekData.length)
 			curWeek = 0;
 		if (curWeek < 0)
@@ -407,37 +429,5 @@ class StoryMenuState extends MusicBeatState
 		#if !switch
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 		#end
-	}
-
-	function chars()
-	{
-		for (char in 0...3)
-			{
-				var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, weekCharacters[curWeek][char]);
-				weekCharacterThing.y += 70;
-				weekCharacterThing.antialiasing = true;
-				switch (weekCharacterThing.character)
-				{
-					case 'dad':
-						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
-						weekCharacterThing.updateHitbox();
-	
-					case 'bf':
-						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
-						weekCharacterThing.updateHitbox();
-						weekCharacterThing.x -= 80;
-					case 'gf':
-						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.5));
-						weekCharacterThing.updateHitbox();
-					case 'pico':
-						weekCharacterThing.flipX = true;
-						weekCharacterThing.y -= 20;
-					case 'parents-christmas':
-						weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
-						weekCharacterThing.updateHitbox();
-				}
-	
-				grpWeekCharacters.add(weekCharacterThing);
-			}
 	}
 }
