@@ -33,7 +33,7 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		songs = CoolUtil.coolTextFile('assets/data/freeplaySonglist.txt');
+		songs = CoolUtil.coolTextFile('${AssetPaths.DATA_FOLDER}/freeplaySonglist.txt');
 
 		/* 
 			if (FlxG.sound.music != null)
@@ -49,7 +49,7 @@ class FreeplayState extends MusicBeatState
 		isDebug = true;
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuBGBlue.png');
+		var bg:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuBGBlue.png');
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -68,7 +68,7 @@ class FreeplayState extends MusicBeatState
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
 		// scoreText.autoSize = false;
-		scoreText.setFormat("assets/fonts/vcr.ttf", 32, FlxColor.WHITE, RIGHT);
+		scoreText.setFormat(AssetPaths.FONT_FOLDER+"/vcr.ttf", 32, FlxColor.WHITE, RIGHT);
 		// scoreText.alignment = RIGHT;
 
 		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
@@ -195,7 +195,7 @@ class FreeplayState extends MusicBeatState
 	function changeSelection(change:Int = 0)
 	{
 		// NGio.logEvent('Fresh');
-		FlxG.sound.play('assets/sounds/scrollMenu' + AssetPaths.soundExt, 0.4);
+		FlxG.sound.play('${AssetPaths.SOUND_FOLDER}/scrollMenu' + AssetPaths.soundExt, 0.4);
 
 		curSelected += change;
 
@@ -211,7 +211,7 @@ class FreeplayState extends MusicBeatState
 		// lerpScore = 0;
 		#end
 
-		FlxG.sound.playMusic('assets/music/' + songs[curSelected] + "_Inst" + AssetPaths.soundExt, 0);
+		FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected] + "_Inst" + AssetPaths.soundExt, 0);
 
 		var bullShit:Int = 0;
 
