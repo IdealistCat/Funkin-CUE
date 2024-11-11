@@ -50,7 +50,7 @@ class FreeplayState extends MusicBeatState
 					// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
 				}
 
-			var jsonmanager:FPJSONmanager;
+			var jsonmanager:FPJSONmanager = new FPJSONmanager();
 			var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
 			songs.push(newsongJSON);
 		}

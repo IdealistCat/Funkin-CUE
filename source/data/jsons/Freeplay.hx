@@ -17,6 +17,11 @@ typedef FreeplayJSON =
 
 class JSONmanager
 {
+	public function new()
+	{
+		trace('Freeplay JSON Manager init');
+	}
+
 	public function initJSON(myjson):FreeplayJSON
 	{
 		var json:FreeplayJSON;
