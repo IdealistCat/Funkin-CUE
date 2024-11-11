@@ -4,6 +4,7 @@ class AssetPaths
 {
 
     public static var DATA_FOLDER = "assets/data";
+    public static var SONG_DATA_FOLDER = '$DATA_FOLDER/songs';
 
     public static var FONT_FOLDER = "assets/fonts";
 
