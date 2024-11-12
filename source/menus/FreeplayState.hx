@@ -45,7 +45,7 @@ class FreeplayState extends MusicBeatState
 
 		// init this only once!!!!!!!!!!!!
 		var jsonmanager:FPJSONmanager = new FPJSONmanager();
-		var songlist:Array<String>;
+		var songlist:Array<String> = [];
 
 		for (i in 0...songJSONlist.length)
 		{
@@ -64,6 +64,7 @@ class FreeplayState extends MusicBeatState
 
 				var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
 				songlist = newsongJSON.songList;
+				trace(songlist);
 			}
 			catch(e)
 			{
@@ -80,9 +81,6 @@ class FreeplayState extends MusicBeatState
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
-
-		if (songs.length < 1)
-			songs.push("Tutorial");
 
 		for (i in 0...songs.length)
 		{

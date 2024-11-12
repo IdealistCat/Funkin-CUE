@@ -1,6 +1,5 @@
 package;
 
-import testing.WeekJSON;
 import flixel.util.typeLimit.NextState.InitialState;
 import flixel.FlxBasic;
 import menus.TitleState;
@@ -16,10 +15,6 @@ class Main extends Sprite
 		super();
 
 		var state:InitialState = TitleState;
-
-		#if WEEK_JSON_TEST
-		state = WeekJSON;
-		#end
 
 		addChild(new FlxGame(0, 0, state));
 

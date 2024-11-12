@@ -20,8 +20,6 @@ class JSONmanager
 
 		json = Json.parse(myjson);
 
-		json.songList ??= ['Tutorial'];
-
 		return json;
 	}
 }
