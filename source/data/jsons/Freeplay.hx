@@ -4,15 +4,10 @@ import haxe.Json;
 
 typedef FreeplayJSON =
 {
-	// Strings \\
 	public var songName:String;
 	public var charIcon:String;
-
-	// Numbers \\
 	public var rating:Null<Int>;
 	public var order:Null<Int>;
-
-	// Arrays \\
 	public var difficulties:Array<String>;
 }
 
