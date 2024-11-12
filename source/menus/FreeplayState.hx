@@ -42,11 +42,17 @@ class FreeplayState extends MusicBeatState
 		var freeplay_song_path:String = '${AssetPaths.SONG_DATA_FOLDER}';
 		var songJSONlist:Array<String> = FileSystem.readDirectory(freeplay_song_path);
 
+		// init this only once!!!!!!!!!!!!
+		var jsonmanager:FPJSONmanager = new FPJSONmanager();
+
 		for (i in 0...songJSONlist.length)
 		{
+			var curpath:String = '$freeplay_song_path/_meta/freeplay-${songJSONlist[i]}.json';
+			var err:String = curpath+" doesn't exist";
+
 			try
 			{
-				var songJSON = Assets.getText('$freeplay_song_path/_meta/freeplay-${songJSONlist[i]}.json');
+				var songJSON = Assets.getText('$curpath');
 
 				while (!songJSON.endsWith("}"))
 				{
@@ -54,15 +60,13 @@ class FreeplayState extends MusicBeatState
 					// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
 				}
 
-				var jsonmanager:FPJSONmanager = new FPJSONmanager();
 				var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
 				songs.push(newsongJSON);
 			}
 			catch(e)
 			{
-				trace(e, {
-					methodName : "loading_songmeta"
-				});
+				trace(err);
+				FlxG.log.warn(err);
 			}
 		}
 
