@@ -89,9 +89,8 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:AtlasText = new AtlasText(0, (70 * i) + 30, songs[i], true, false);
-			songText.isMenuItem = true;
-			songText.targetY = i;
+			var songText:AtlasText = new AtlasText(0, (70 * i) + 30, songs[i]);
+			songText.ID = 1;
 			grpSongs.add(songText);
 		}
 
@@ -227,15 +226,10 @@ class FreeplayState extends MusicBeatState
 			trace('cant find the $song track');
 		}
 
-		var bullShit:Int = 0;
-
 		for (item in grpSongs.members)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
 			item.alpha = 0.6;
-			if (item.targetY == 0)
+			if (item.ID == curSelected)
 			{
 				item.alpha = 1;
 			}
