@@ -212,7 +212,7 @@ class AtlasChar extends FlxSprite
       }
       else
       {
-        trace('Could not find animation for char "' + value + '"');
+        trace('Could not find animation for char "$value"');
       }
       updateHitbox();
     }
@@ -264,7 +264,7 @@ private class AtlasFontData
   public function new(name:AtlasFont)
   {
     var fontName:String = name;
-    atlas = Paths.getSparrowAtlas('fonts/${fontName.toLowerCase()}');
+    atlas = Paths.getSparrowAtlas('ui/${fontName.toLowerCase()}');
     if (atlas == null)
     {
       FlxG.log.warn('Could not find font atlas for font "${fontName}".');
