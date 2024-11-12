@@ -210,7 +210,13 @@ class FreeplayState extends MusicBeatState
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		#end
 
-		FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected].songName + "_Inst" + AssetPaths.soundExt, 0);
+		try {
+			FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected].songName + "_Inst" + AssetPaths.soundExt, 0);
+		}
+		catch(e){
+			var song:String = songs[curSelected].songName;
+			trace('cant find the $song track');
+		}
 
 		var bullShit:Int = 0;
 
