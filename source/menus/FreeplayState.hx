@@ -1,5 +1,6 @@
 package menus;
 
+import haxe.Log;
 import data.jsons.Freeplay.JSONmanager as FPJSONmanager;
 import sys.io.File;
 import data.jsons.Freeplay.FreeplayJSON;
@@ -41,18 +42,28 @@ class FreeplayState extends MusicBeatState
 		var freeplay_song_path:String = '${AssetPaths.SONG_DATA_FOLDER}';
 		var songJSONlist:Array<String> = FileSystem.readDirectory(freeplay_song_path);
 
-		for (i in 0...songJSONlist.length) {
-			var songJSON = Assets.getText('$freeplay_song_path/_meta/freeplay-${songJSONlist[i]}.json');
+		for (i in 0...songJSONlist.length)
+		{
+			try
+			{
+				var songJSON = Assets.getText('$freeplay_song_path/_meta/freeplay-${songJSONlist[i]}.json');
 
-			while (!songJSON.endsWith("}"))
+				while (!songJSON.endsWith("}"))
 				{
 					songJSON = songJSON.substr(0, songJSON.length - 1);
 					// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
 				}
 
-			var jsonmanager:FPJSONmanager = new FPJSONmanager();
-			var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
-			songs.push(newsongJSON);
+				var jsonmanager:FPJSONmanager = new FPJSONmanager();
+				var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
+				songs.push(newsongJSON);
+			}
+			catch(e)
+			{
+				trace(e, {
+					methodName : "loading_songmeta"
+				});
+			}
 		}
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuBGBlue.png');
@@ -70,7 +81,7 @@ class FreeplayState extends MusicBeatState
 		}
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(AssetPaths.FONT_FOLDER+"/vcr.ttf", 32, FlxColor.WHITE, RIGHT);
+		scoreText.setFormat(AssetPaths.FONT_FOLDER + "/vcr.ttf", 32, FlxColor.WHITE, RIGHT);
 
 		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
