@@ -1,5 +1,6 @@
 package funkin;
 
+import openfl.utils.Assets;
 import flixel.FlxG;
 import utilities.AssetPaths;
 import flixel.graphics.frames.FlxAtlasFrames;
