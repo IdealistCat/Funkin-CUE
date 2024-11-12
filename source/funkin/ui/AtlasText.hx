@@ -260,7 +260,6 @@ private class AtlasFontData
   public var atlas:FlxAtlasFrames;
   public var maxHeight:Float = 0.0;
   public var caseAllowed:Case = Both;
-	var FlxG(default, null):?;
 
   public function new(name:AtlasFont)
   {

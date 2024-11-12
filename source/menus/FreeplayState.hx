@@ -40,8 +40,6 @@ class FreeplayState extends MusicBeatState
 	override function create()
 	{
 		var freeplay_song_path:String = '${AssetPaths.DATA_FOLDER}';
-		var songJSONlist:Array<String> = FileSystem.readDirectory(freeplay_song_path);
-		var songOrderStuff:Array<FreeplayJSON> = [];
 
 		// init this only once!!!!!!!!!!!!
 		var jsonmanager:FPJSONmanager = new FPJSONmanager();
@@ -52,6 +50,7 @@ class FreeplayState extends MusicBeatState
 
 		try
 		{
+			trace(curpath);
 			var songJSON = Assets.getText('$curpath');
 
 			while (!songJSON.endsWith("}"))
@@ -78,6 +77,7 @@ class FreeplayState extends MusicBeatState
 		catch (e)
 		{
 			trace(e);
+			songs = ['Tutorial'];
 		}
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuBGBlue.png');

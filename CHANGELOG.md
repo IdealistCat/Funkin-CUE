@@ -10,7 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Preloader State
 - Size of menuBG on MainMenuState
 - Song Tracks folder
-- Storymenu Assets folder
 ### Fixed
 - Type not Found: ModInit compiling error
 ### Added
