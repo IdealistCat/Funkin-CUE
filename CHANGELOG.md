@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Type not Found: ModInit compiling error
 ### Added
 - More code Folders
+- Easier method of adding songs
 ### Removed
 - Weeks 2 - 6
 - Story mode (for now)
