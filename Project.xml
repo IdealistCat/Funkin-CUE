@@ -84,10 +84,9 @@
 	<!-- ______________________________ My defines _____________________________ -->
 
 	<haxedef name="WEEK_JSON_TEST" if="weekjson"/>
+	<haxedef name="Heavypack" unless="lightpack"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
-	 
-	<haxedef name="Heavypack" unless="lightpack"/>
 
 	<!--Enable the Flixel core recording system-->
 	<haxedef name="FLX_RECORD" />
