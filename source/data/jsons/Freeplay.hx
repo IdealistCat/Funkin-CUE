@@ -9,7 +9,7 @@ typedef FreeplayJSON =
 	public var charIcon:String;
 
 	// Numbers \\
-	public var rating:Int;
+	public var rating:Null<Int>;
 
 	// Arrays \\
 	public var difficulties:Array<String>;
@@ -30,7 +30,7 @@ class JSONmanager
 
 		json.songName ??= 'unnamed';
 		json.charIcon ??= 'face';
-		if (json.rating == null) json.rating = 1;
+		json.rating ??= 1;
 		json.difficulties ??= ['normal'];
 
 		return json;
