@@ -83,13 +83,7 @@
 	<!--<haxelib name="nape-haxe4" />-->
 	<!-- ______________________________ My defines _____________________________ -->
 
-	<haxedef name="web" if="html5"/>
-	<haxedef name="web" if="html"/>
-	<haxedef name="web" if="WEB_TEST"/>
-
-	<haxedef name="NO_MODDING" if="web"/>
-
-	<haxedef name="POLYMOD_ERRORS_ENABLED" if="POLYMOD_ERRORS"/>
+	<haxedef name="WEEK_JSON_TEST" if="weekjson"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 	 

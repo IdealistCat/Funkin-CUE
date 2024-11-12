@@ -1,5 +1,8 @@
 package;
 
+import testing.WeekJSON;
+import flixel.util.typeLimit.NextState.InitialState;
+import flixel.FlxBasic;
 import menus.TitleState;
 import openfl.Assets;
 import flixel.FlxGame;
@@ -11,7 +14,14 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-		addChild(new FlxGame(0, 0, TitleState));
+
+		var state:InitialState = TitleState;
+
+		#if WEEK_JSON_TEST
+		state = WeekJSON;
+		#end
+
+		addChild(new FlxGame(0, 0, state));
 
 		#if !mobile
 		addChild(new FPS(10, 3, 0xFFFFFF));

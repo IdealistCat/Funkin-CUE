@@ -8,7 +8,7 @@ typedef WeekJSON =
 	public var asset:String;
 }
 
-class JSONmanager
+class WeekJSONmanager
 {
 	public function new()
 	{
