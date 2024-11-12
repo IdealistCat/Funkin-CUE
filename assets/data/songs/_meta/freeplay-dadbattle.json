@@ -2,6 +2,7 @@
     "songName": "dadbattle",
     "charIcon": "dad",
     "rating": 4,
-    "difficulties": ["easy", "normal", "hard"]
+    "difficulties": ["easy", "normal", "hard"],
+    "order":4
   }
   

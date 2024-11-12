@@ -41,6 +41,7 @@ class FreeplayState extends MusicBeatState
 	{
 		var freeplay_song_path:String = '${AssetPaths.SONG_DATA_FOLDER}';
 		var songJSONlist:Array<String> = FileSystem.readDirectory(freeplay_song_path);
+		var songOrderStuff:Array<FreeplayJSON> = [];
 
 		// init this only once!!!!!!!!!!!!
 		var jsonmanager:FPJSONmanager = new FPJSONmanager();
@@ -48,7 +49,7 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...songJSONlist.length)
 		{
 			var curpath:String = '$freeplay_song_path/_meta/freeplay-${songJSONlist[i]}.json';
-			var err:String = curpath+" doesn't exist";
+			var err:String = '"$curpath"'+" doesn't exist";
 
 			try
 			{
@@ -61,13 +62,26 @@ class FreeplayState extends MusicBeatState
 				}
 
 				var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
-				songs.push(newsongJSON);
+				songOrderStuff.push(newsongJSON);
 			}
 			catch(e)
 			{
 				trace(err);
-				FlxG.log.warn(err);
 			}
+		}
+
+		var oglen:Int = songJSONlist.length;
+		var i:Int = 0;
+		while (songJSONlist.length > 0) {
+			var song:FreeplayJSON = songOrderStuff[i];
+			
+			if (song.order == i)
+				songs.push(song);
+
+			i++;
+			
+			if (i > oglen)
+				i = 0;
 		}
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuBGBlue.png');

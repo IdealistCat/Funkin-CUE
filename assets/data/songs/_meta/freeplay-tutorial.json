@@ -2,6 +2,7 @@
     "songName": "tutorial",
     "charIcon": "gf",
     "rating": 1,
-    "difficulties": ["easy", "normal", "hard"]
+    "difficulties": ["easy", "normal", "hard"],
+    "order":1
   }
   
