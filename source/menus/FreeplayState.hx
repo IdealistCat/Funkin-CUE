@@ -183,7 +183,7 @@ class FreeplayState extends MusicBeatState
 		if (curDifficulty > 0)
 			diffText.text = "< ";
 		else
-			diffText.text = "";
+			diffText.text = ". ";
 
 		switch (curDifficulty)
 		{
@@ -197,6 +197,8 @@ class FreeplayState extends MusicBeatState
 
 		if (curDifficulty < 2)
 			diffText.text += " >";
+		else
+			diffText.text += " .";
 	}
 
 	function changeSelection(change:Int = 0)
