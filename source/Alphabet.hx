@@ -14,9 +14,9 @@ import flixel.util.FlxTimer;
  */
 // TODO: Re-eanble this
 
-@:deprecated("Use ui.AtlasText instead");
 using StringTools;
 
+@:deprecated("Use ui.AtlasText instead")
 class Alphabet extends FlxSpriteGroup
 {
   public var delay:Float = 0.05;
