@@ -1,5 +1,7 @@
 package funkin;
 
+import flixel.FlxG;
+import utilities.AssetPaths;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.AssetType;
 
@@ -104,7 +106,7 @@ class Paths
 
   public static function sound(key:String, ?library:String):String
   {
-    return getPath('sounds/$key.${Constants.EXT_SOUND}', SOUND, library);
+    return getPath('sounds/$key.${AssetPaths.soundExt}', SOUND, library);
   }
 
   public static function soundRandom(key:String, min:Int, max:Int, ?library:String):String
@@ -114,19 +116,19 @@ class Paths
 
   public static function music(key:String, ?library:String):String
   {
-    return getPath('music/$key.${Constants.EXT_SOUND}', MUSIC, library);
+    return getPath('music/$key.${AssetPaths.soundExt}', MUSIC, library);
   }
 
   public static function videos(key:String, ?library:String):String
   {
-    return getPath('videos/$key.${Constants.EXT_VIDEO}', BINARY, library ?? 'videos');
+    return getPath('videos/$key.${AssetPaths.videoExt}', BINARY, library ?? 'videos');
   }
 
   public static function voices(song:String, ?suffix:String = ''):String
   {
     if (suffix == null) suffix = ''; // no suffix, for a sorta backwards compatibility with older-ish voice files
 
-    return 'songs:assets/songs/${song.toLowerCase()}/Voices$suffix.${Constants.EXT_SOUND}';
+    return 'songs:assets/songs/${song.toLowerCase()}/Voices$suffix.${AssetPaths.soundExt}';
   }
 
   /**
@@ -138,7 +140,7 @@ class Paths
    */
   public static function inst(song:String, ?suffix:String = '', ?withExtension:Bool = true):String
   {
-    var ext:String = withExtension ? '.${Constants.EXT_SOUND}' : '';
+    var ext:String = withExtension ? '.${AssetPaths.soundExt}' : '';
     return 'songs:assets/songs/${song.toLowerCase()}/Inst$suffix$ext';
   }
 

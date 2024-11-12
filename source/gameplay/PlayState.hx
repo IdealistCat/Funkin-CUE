@@ -541,37 +541,29 @@ class PlayState extends MusicBeatState
 				default:
 					babyArrow.frames = FlxAtlasFrames.fromSparrow('${AssetPaths.UI_FOLDER}/NOTE_assets.png',
 						'${AssetPaths.UI_FOLDER}/NOTE_assets.xml');
-					babyArrow.animation.addByPrefix('green', 'arrowUP');
-					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
-					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
-					babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
 
 					babyArrow.antialiasing = true;
 					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
 
+					var dir:String = 'left';
+					babyArrow.x += Note.swagWidth * 0;
+
 					switch (Math.abs(i))
 					{
-						case 0:
-							babyArrow.x += Note.swagWidth * 0;
-							babyArrow.animation.addByPrefix('static', 'arrowLEFT');
-							babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
 						case 1:
 							babyArrow.x += Note.swagWidth * 1;
-							babyArrow.animation.addByPrefix('static', 'arrowDOWN');
-							babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+							dir = 'down';
 						case 2:
 							babyArrow.x += Note.swagWidth * 2;
-							babyArrow.animation.addByPrefix('static', 'arrowUP');
-							babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+							dir = 'up';
 						case 3:
 							babyArrow.x += Note.swagWidth * 3;
-							babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
-							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
-							babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
+							dir = 'right';
 					}
+					
+					babyArrow.animation.addByPrefix('static', 'arrow${dir.toUpperCase()}');
+					babyArrow.animation.addByPrefix('pressed', '$dir press', 24, false);
+					babyArrow.animation.addByPrefix('confirm', '$dir confirm', 24, false);
 			}
 
 			babyArrow.updateHitbox();

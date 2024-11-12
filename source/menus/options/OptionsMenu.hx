@@ -1,5 +1,6 @@
 package menus.options;
 
+import funkin.ui.AtlasText;
 import Controls.Control;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -19,11 +20,12 @@ class OptionsMenu extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var optionmenus:Array<String> = [
-		"9/11.com",
-		"game vods"
+		"Graphics",
+		"Gameplay",
+		"UI"
 	];
 
-	private var grpControls:FlxTypedGroup<Alphabet>;
+	private var grpControls:FlxTypedGroup<AtlasText>;
 
 	override function create()
 	{
@@ -35,14 +37,13 @@ class OptionsMenu extends MusicBeatState
 		menuBG.antialiasing = true;
 		add(menuBG);
 
-		grpControls = new FlxTypedGroup<Alphabet>();
+		grpControls = new FlxTypedGroup<AtlasText>();
 		add(grpControls);
 
 		for (i in 0...optionmenus.length)
 		{
-			var controlLabel:Alphabet = new Alphabet(0, (70 * i) + 30, optionmenus[i], true, false);
-			controlLabel.isMenuItem = true;
-			controlLabel.targetY = i;
+			var controlLabel:AtlasText = new AtlasText(0, (70 * i) + 30, optionmenus[i]);
+			controlLabel.ID = i;
 			grpControls.add(controlLabel);
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
@@ -56,7 +57,12 @@ class OptionsMenu extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
-			// do shit
+			var selected:String = optionmenus[curSelected];
+			switch(selected)
+			{
+				default:
+					trace('No case for $selected');
+			}
 		}
 
 		if (controls.BACK)
@@ -78,22 +84,12 @@ class OptionsMenu extends MusicBeatState
 		if (curSelected >= grpControls.length)
 			curSelected = 0;
 
-		// selector.y = (70 * curSelected) + 30;
-
-		var bullShit:Int = 0;
-
 		for (item in grpControls.members)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
 			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
+			if (item.ID == curSelected)
 			{
 				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
 	}
