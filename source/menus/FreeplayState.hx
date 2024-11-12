@@ -73,10 +73,10 @@ class FreeplayState extends MusicBeatState
 		var oglen:Int = songJSONlist.length;
 		var i:Int = 0;
 		while (songJSONlist.length > 0) {
-			var song:FreeplayJSON = songOrderStuff[i];
+			var cursong:FreeplayJSON = songOrderStuff[i];
 			
-			if (song.order == i)
-				songs.push(song);
+			if (cursong.order == i)
+				songs.push(cursong);
 
 			i++;
 			
