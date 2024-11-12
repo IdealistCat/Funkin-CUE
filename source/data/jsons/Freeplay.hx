@@ -11,7 +11,7 @@ class JSONmanager
 {
 	public function new()
 	{
-		trace('Freeplay JSON Manager init');
+		// trace('Freeplay JSON Manager init');
 	}
 
 	public function initJSON(myjson):FreeplayJSON

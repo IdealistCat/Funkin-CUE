@@ -42,8 +42,9 @@ class OptionsMenu extends MusicBeatState
 
 		for (i in 0...optionmenus.length)
 		{
-			var controlLabel:AtlasText = new AtlasText(0, (70 * i) + 30, optionmenus[i]);
+			var controlLabel:AtlasText = new AtlasText(0, (70 * i) + 30, optionmenus[i], AtlasFont.BOLD);
 			controlLabel.ID = i;
+			controlLabel.screenCenter();
 			grpControls.add(controlLabel);
 		}
 		
@@ -62,7 +63,7 @@ class OptionsMenu extends MusicBeatState
 			switch(selected)
 			{
 				default:
-					trace('No case for $selected');
+					trace('No case for section: "$selected"');
 			}
 		}
 

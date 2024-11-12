@@ -51,7 +51,7 @@ class FreeplayState extends MusicBeatState
 
 		try
 		{
-			trace(curpath);
+			// trace(curpath);
 			var songJSON = Assets.getText('$curpath');
 
 			while (!songJSON.endsWith("}"))
@@ -61,7 +61,7 @@ class FreeplayState extends MusicBeatState
 			}
 
 			songlist = jsonmanager.initJSON(songJSON).songList;
-			trace(songlist);
+			//trace(songlist);
 		}
 		catch (e)
 		{
@@ -89,8 +89,8 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:AtlasText = new AtlasText(0, (70 * i) + 30, songs[i]);
-			songText.ID = 1;
+			var songText:AtlasText = new AtlasText(0, (70 * i) + 30, songs[i], AtlasFont.BOLD);
+			songText.ID = i;
 			grpSongs.add(songText);
 		}
 
