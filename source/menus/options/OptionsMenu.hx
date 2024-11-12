@@ -45,8 +45,9 @@ class OptionsMenu extends MusicBeatState
 			var controlLabel:AtlasText = new AtlasText(0, (70 * i) + 30, optionmenus[i]);
 			controlLabel.ID = i;
 			grpControls.add(controlLabel);
-			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
+		
+		changeSelection(0);
 
 		super.create();
 	}
