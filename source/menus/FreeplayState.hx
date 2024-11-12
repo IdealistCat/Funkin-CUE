@@ -23,7 +23,7 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	var songs:Array<FreeplayJSON> = [];
+	var songs:Array<String> = [];
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
@@ -39,16 +39,17 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		var freeplay_song_path:String = '${AssetPaths.SONG_DATA_FOLDER}';
+		var freeplay_song_path:String = '${AssetPaths.DATA_FOLDER}';
 		var songJSONlist:Array<String> = FileSystem.readDirectory(freeplay_song_path);
 		var songOrderStuff:Array<FreeplayJSON> = [];
 
 		// init this only once!!!!!!!!!!!!
 		var jsonmanager:FPJSONmanager = new FPJSONmanager();
+		var songlist:Array<String>;
 
 		for (i in 0...songJSONlist.length)
 		{
-			var curpath:String = '$freeplay_song_path/_meta/freeplay-${songJSONlist[i]}.json';
+			var curpath:String = '$freeplay_song_path/Freeplay.json';
 			var err:String = '"$curpath"'+" doesn't exist";
 
 			try
@@ -62,7 +63,7 @@ class FreeplayState extends MusicBeatState
 				}
 
 				var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
-				songOrderStuff.push(newsongJSON);
+				songlist = newsongJSON.songList;
 			}
 			catch(e)
 			{
@@ -70,18 +71,8 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
-		var oglen:Int = songJSONlist.length;
-		var i:Int = 0;
-		while (songJSONlist.length > 0) {
-			var cursong:FreeplayJSON = songOrderStuff[i];
-			
-			if (cursong.order == i)
-				songs.push(cursong);
-
-			i++;
-			
-			if (i > oglen)
-				i = 0;
+		for (i in 0...songlist.length) {
+			songs.push(songlist[i]);
 		}
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuBGBlue.png');
@@ -90,9 +81,12 @@ class FreeplayState extends MusicBeatState
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
+		if (songs.length < 1)
+			songs.push("Tutorial");
+
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i], true, false);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
@@ -158,11 +152,11 @@ class FreeplayState extends MusicBeatState
 
 		if (accepted)
 		{
-			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
+			var poop:String = Highscore.formatSong(songs[curSelected].toLowerCase(), curDifficulty);
 
 			trace(poop);
 
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].toLowerCase());
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
 			FlxG.switchState(new PlayState());
@@ -181,7 +175,7 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = 0;
 
 		#if !switch
-		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
+		intendedScore = Highscore.getScore(songs[curSelected], curDifficulty);
 		#end
 
 		switch (curDifficulty)
@@ -207,14 +201,14 @@ class FreeplayState extends MusicBeatState
 			curSelected = 0;
 
 		#if !switch
-		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
+		intendedScore = Highscore.getScore(songs[curSelected], curDifficulty);
 		#end
 
 		try {
-			FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected].songName + "_Inst" + AssetPaths.soundExt, 0);
+			FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected] + "_Inst" + AssetPaths.soundExt, 0);
 		}
 		catch(e){
-			var song:String = songs[curSelected].songName;
+			var song:String = songs[curSelected];
 			trace('cant find the $song track');
 		}
 
