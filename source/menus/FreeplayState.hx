@@ -47,33 +47,37 @@ class FreeplayState extends MusicBeatState
 		var jsonmanager:FPJSONmanager = new FPJSONmanager();
 		var songlist:Array<String> = [];
 
-		for (i in 0...songJSONlist.length)
+		var curpath:String = '$freeplay_song_path/Freeplay.json';
+		var err:String = '"$curpath"' + " doesn't exist";
+
+		try
 		{
-			var curpath:String = '$freeplay_song_path/Freeplay.json';
-			var err:String = '"$curpath"'+" doesn't exist";
+			var songJSON = Assets.getText('$curpath');
 
-			try
+			while (!songJSON.endsWith("}"))
 			{
-				var songJSON = Assets.getText('$curpath');
-
-				while (!songJSON.endsWith("}"))
-				{
-					songJSON = songJSON.substr(0, songJSON.length - 1);
-					// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
-				}
-
-				var newsongJSON:FreeplayJSON = jsonmanager.initJSON(songJSON);
-				songlist = newsongJSON.songList;
-				trace(songlist);
+				songJSON = songJSON.substr(0, songJSON.length - 1);
+				// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
 			}
-			catch(e)
-			{
-				trace(err);
-			}
+
+			songlist = jsonmanager.initJSON(songJSON).songList;
+			trace(songlist);
+		}
+		catch (e)
+		{
+			trace(err);
 		}
 
-		for (i in 0...songlist.length) {
-			songs.push(songlist[i]);
+		try
+		{
+			for (i in 0...songlist.length)
+			{
+				songs.push(songlist[i]);
+			}
+		}
+		catch (e)
+		{
+			trace(e);
 		}
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic('${AssetPaths.IMAGE_FOLDER}/menuBGBlue.png');
@@ -202,10 +206,12 @@ class FreeplayState extends MusicBeatState
 		intendedScore = Highscore.getScore(songs[curSelected], curDifficulty);
 		#end
 
-		try {
+		try
+		{
 			FlxG.sound.playMusic('${AssetPaths.SONG_FOLDER}/' + songs[curSelected] + "_Inst" + AssetPaths.soundExt, 0);
 		}
-		catch(e){
+		catch (e)
+		{
 			var song:String = songs[curSelected];
 			trace('cant find the $song track');
 		}

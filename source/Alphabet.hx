@@ -13,8 +13,8 @@ import flixel.util.FlxTimer;
  * Loosley based on FlxTypeText lolol
  */
 // TODO: Re-eanble this
-// @:deprecated("Use ui.AtlasText instead")
 
+@:deprecated("Use ui.AtlasText instead");
 using StringTools;
 
 class Alphabet extends FlxSpriteGroup
