@@ -299,6 +299,6 @@ enum Case
 
 enum abstract AtlasFont(String) from String to String
 {
-  var DEFAULT = "default";
-  var BOLD = "bold";
+  var DEFAULT = "alphabet";
+  var BOLD = "alphabet-bold";
 }
