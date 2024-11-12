@@ -9,7 +9,6 @@ class AssetPaths
 
     public static var FONT_FOLDER = "assets/fonts";
 
-	public static var videoExt = '.mp4';
     public static var IMAGE_FOLDER = "assets/images";
     public static var UI_FOLDER = '$IMAGE_FOLDER/ui';
 
@@ -17,4 +16,6 @@ class AssetPaths
     public static var SOUND_FOLDER = "assets/sounds";
     public static var MUSIC_FOLDER = "assets/music";
     public static var SONG_FOLDER = "assets/music/songs";
+    
+	public static var videoExt = '.mp4';
 }
